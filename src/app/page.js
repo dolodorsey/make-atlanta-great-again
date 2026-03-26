@@ -61,7 +61,7 @@ export default async function HomePage() {
     <>
       {/* ══ HERO — cinematic with ATL panorama bg ══ */}
       <section className="hero">
-        <div className="hero__bg" style={{ backgroundImage: 'url(/culture/atl-panorama.png)' }} />
+        <div className="hero__bg" style={{ backgroundImage: 'url(/culture/hero-collage.png)' }} />
         <div className="hero__crests">
           <img src="/brand/MAGA_hawks.png" alt="" className="hero__crest" />
           <img src="/brand/MAGA_atlanta_braves.png" alt="" className="hero__crest" />
