@@ -21,7 +21,7 @@ function ProductCard({ product }) {
           </div>
         )}
         <div className="product-card__overlay">
-          <a href={`${SHOPIFY}/cart/${variantId}:1`} className="product-card__quick-shop" onClick={(e) => e.stopPropagation()}>
+          <a href={`${SHOPIFY}/cart/${variantId}:1`} className="product-card__quick-shop">
             ADD TO CART
           </a>
         </div>
@@ -219,3 +219,4 @@ export default async function HomePage() {
     </>
   );
 }
+
