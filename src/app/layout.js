@@ -16,10 +16,12 @@ export const metadata = {
 const SHOPIFY = 'https://makeatlantagreatagain.myshopify.com';
 
 const NAV = [
-  { label: 'Shop', href: `${SHOPIFY}/collections/all-products` },
-  { label: 'Story', href: `${SHOPIFY}/pages/about` },
-  { label: 'Archive', href: `${SHOPIFY}/collections/all-products` },
-  { label: 'Movement', href: '#movement' },
+  { label: 'Shop All', href: `${SHOPIFY}/collections/all-products` },
+  { label: 'Snapbacks', href: `${SHOPIFY}/collections/snapbacks` },
+  { label: 'Tees', href: `${SHOPIFY}/collections/t-shirts` },
+  { label: 'Truckers', href: `${SHOPIFY}/collections/trucker-hats` },
+  { label: 'Vests', href: `${SHOPIFY}/collections/vests` },
+  { label: 'Buckets', href: `${SHOPIFY}/collections/bucket-hats` },
 ];
 
 export default function RootLayout({ children }) {
