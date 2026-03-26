@@ -1,28 +1,35 @@
-import { getProducts, getCollections, formatPrice } from '@/lib/shopify';
+import { getProducts, formatPrice } from '@/lib/shopify';
 
 export const dynamic = 'force-dynamic';
 
-const SHOPIFY = 'https://makeatlantagreatagain.myshopify.com';
+const S = 'https://makeatlantagreatagain.myshopify.com';
+
+const CRESTS = [
+  { src: '/brand/MAGA_brave_gold.png', alt: 'Mascot Seal' },
+  { src: '/brand/MAGA_atlanta_braves.png', alt: 'Crossed Axes 2026' },
+  { src: '/brand/MAGA_hawks.png', alt: 'Hawks Wingspan' },
+  { src: '/brand/MAGA_thrasher.png', alt: 'Thrasher Shield' },
+  { src: '/brand/MAGA_falcon.png', alt: 'Falcon Strike' },
+  { src: '/brand/MAGA_braves.png', alt: 'Script Atlanta' },
+  { src: '/brand/MAGA_brave.png', alt: 'Gold Grillz Mascot' },
+  { src: '/brand/FLAG.png', alt: 'ATL Flag' },
+];
 
 function ProductCard({ product }) {
   const img = product.images?.[0]?.src;
   const price = product.variants?.[0]?.price;
   const variantId = product.variants?.[0]?.id;
-  const handle = product.handle;
-
   return (
-    <a href={`${SHOPIFY}/products/${handle}`} className="product-card">
+    <a href={`${S}/products/${product.handle}`} className="product-card">
       <div className="product-card__image-wrapper">
         {img ? (
           <img src={img} alt={product.title} className="product-card__image" loading="lazy" />
         ) : (
-          <div style={{ width: '100%', height: '100%', background: '#1a1a1a', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#404040', fontSize: 12, letterSpacing: '0.1em' }}>
-            NO IMAGE
-          </div>
+          <div style={{ width: '100%', height: '100%', background: '#1a1a1a' }} />
         )}
         <div className="product-card__overlay">
-          <a href={`${SHOPIFY}/cart/${variantId}:1`} className="product-card__quick-shop">
-            ADD TO CART
+          <a href={`${S}/cart/${variantId}:1`} className="product-card__quick-shop">
+            Add to Cart
           </a>
         </div>
       </div>
@@ -34,189 +41,182 @@ function ProductCard({ product }) {
   );
 }
 
-function CategoryCard({ title, count, image, href }) {
-  return (
-    <a href={href} className="category-card">
-      {image ? (
-        <img src={image} alt={title} className="category-card__image" loading="lazy" />
-      ) : (
-        <div className="category-card__image" style={{ background: 'linear-gradient(135deg, #1B2A4A, #0F1A2E)' }} />
-      )}
-      <div className="category-card__overlay">
-        <div className="category-card__title">{title}</div>
-        <div className="category-card__count">{count} pieces</div>
-      </div>
-    </a>
-  );
-}
-
 export default async function HomePage() {
-  const [products, collections] = await Promise.all([
-    getProducts(),
-    getCollections(),
-  ]);
+  const products = await getProducts();
 
-  // Group products by type
   const byType = {};
-  products.forEach(p => {
+  (products || []).forEach(p => {
     const t = p.product_type || 'Other';
     if (!byType[t]) byType[t] = [];
     byType[t].push(p);
   });
 
-  // Get representative images for categories
-  const categoryData = [
-    { title: 'Snapbacks', key: 'Snapback Cap', handle: 'snapbacks' },
-    { title: 'Trucker Hats', key: 'Trucker Hat', handle: 'trucker-hats' },
-    { title: 'Bucket Hats', key: 'Bucket Hat', handle: 'bucket-hats' },
-    { title: 'T-Shirts', key: 'T-Shirt', handle: 't-shirts' },
-    { title: 'Vests', key: 'Vest', handle: 'vests' },
-    { title: 'Pants', key: 'Pants', handle: 'bottoms' },
-  ].map(cat => ({
-    ...cat,
-    count: (byType[cat.key] || []).length,
-    image: (byType[cat.key] || [])[0]?.images?.[0]?.src || null,
-  }));
-
-  // Featured products — snapbacks first (most visually striking)
   const snapbacks = byType['Snapback Cap'] || [];
   const tees = byType['T-Shirt'] || [];
   const buckets = byType['Bucket Hat'] || [];
+  const vests = byType['Vest'] || [];
+  const truckers = byType['Trucker Hat'] || [];
+  const featured = [...snapbacks.slice(0, 2), ...tees.slice(0, 2)];
 
   return (
     <>
-      {/* HERO */}
+      {/* ═══════════════════════════════════════════
+          SECTION 1 — CINEMATIC HERO
+          ═══════════════════════════════════════════ */}
       <section className="hero">
         <div className="hero__bg" />
+        <div className="hero__crests">
+          <img src="/brand/MAGA_hawks.png" alt="" className="hero__crest" />
+          <img src="/brand/MAGA_atlanta_braves.png" alt="" className="hero__crest" />
+          <img src="/brand/MAGA_thrasher.png" alt="" className="hero__crest" />
+          <img src="/brand/MAGA_brave.png" alt="" className="hero__crest" />
+        </div>
         <div className="hero__content">
-          <div className="hero__eyebrow">2026 Collection &mdash; Atlanta Streetwear</div>
+          <div className="hero__tag">2026 Collection &mdash; Atlanta, Georgia</div>
           <h1 className="hero__title">
-            Make Atlanta<br /><em>Great Again</em>
+            When Atlanta<br /><em>Was Atlanta</em>
           </h1>
-          <p className="hero__subtitle">
-            64 premium pieces across 7 categories. Snapbacks, truckers, bucket hats, 
-            tees, vests &amp; pants. Original ATL designs. Made with pride.
+          <p className="hero__sub">
+            A tribute to the city before the soul got diluted. Not a slogan. A reminder.
+            Premium streetwear for the ones who remember.
           </p>
           <div className="hero__actions">
-            <a href={`${SHOPIFY}/collections/all-products`} className="btn-primary">Shop the Collection</a>
-            <a href={`${SHOPIFY}/collections/headwear`} className="btn-secondary">Headwear</a>
+            <a href={`${S}/collections/all-products`} className="btn-primary">Shop the Drop</a>
+            <a href="#movement" className="btn-secondary">Enter the Movement</a>
           </div>
+        </div>
+        <div className="hero__scroll">
+          <span>Scroll</span>
+          <div className="hero__scroll-line" />
         </div>
       </section>
 
-      {/* STATS */}
-      <section className="stats">
-        <div className="stat">
-          <div className="stat__number">64</div>
-          <div className="stat__label">Products</div>
-        </div>
-        <div className="stat">
-          <div className="stat__number">7</div>
-          <div className="stat__label">Categories</div>
-        </div>
-        <div className="stat">
-          <div className="stat__number">20</div>
-          <div className="stat__label">Snapback Designs</div>
-        </div>
-        <div className="stat">
-          <div className="stat__number">521</div>
-          <div className="stat__label">Variants</div>
+      {/* ═══════════════════════════════════════════
+          SECTION 2 — MANIFESTO
+          ═══════════════════════════════════════════ */}
+      <section className="manifesto">
+        <p className="manifesto__text">
+          Atlanta was never just a city. It was a <strong>feeling</strong>. A rhythm. 
+          A late-night memory. A certain kind of flavor you can&rsquo;t fake.
+          Before the culture became content. Before soul got replaced by sameness.
+          <strong> This is for the ones who remember.</strong>
+        </p>
+      </section>
+
+      {/* ═══════════════════════════════════════════
+          SECTION 3 — MARQUEE BAND
+          ═══════════════════════════════════════════ */}
+      <section className="marquee">
+        <div className="marquee__track">
+          {[...Array(6)].map((_, i) => (
+            <span key={i} className="marquee__item">
+              WHEN ATLANTA WAS ATLANTA <span className="marquee__dot">&bull;</span> BACK WHEN THE CITY HAD SOUL <span className="marquee__dot">&bull;</span>
+            </span>
+          ))}
         </div>
       </section>
 
-      {/* SNAPBACKS */}
-      <section>
-        <div className="container">
-          <div className="section-header">
-            <h2 className="section-header__title">Skyline Snapbacks</h2>
-            <a href={`${SHOPIFY}/collections/snapbacks`} className="section-header__count">View All {snapbacks.length} &rarr;</a>
+      {/* ═══════════════════════════════════════════
+          SECTION 4 — CREST GALLERY
+          ═══════════════════════════════════════════ */}
+      <section className="crests">
+        <div className="crests__header">
+          <div className="crests__tag">The Crests</div>
+          <h2 className="crests__title">Eight Teams. One City.</h2>
+        </div>
+        <div className="crests__grid">
+          {CRESTS.map((c, i) => (
+            <a key={i} href={`${S}/collections/all-products`} className="crest-card">
+              <img src={c.src} alt={c.alt} className="crest-card__img" loading="lazy" />
+            </a>
+          ))}
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
+          SECTION 5 — FLAGSHIP DROP (Snapbacks)
+          ═══════════════════════════════════════════ */}
+      <section className="products">
+        <div className="products__header">
+          <div>
+            <div className="products__tag">The Drop</div>
+            <h2 className="products__title">Skyline Snapbacks</h2>
           </div>
+          <a href={`${S}/collections/snapbacks`} className="products__count">
+            All {snapbacks.length} pieces &rarr;
+          </a>
         </div>
         <div className="product-grid">
           {snapbacks.slice(0, 8).map(p => <ProductCard key={p.id} product={p} />)}
         </div>
       </section>
 
-      {/* CATEGORIES */}
-      <section style={{ padding: '80px 0 0' }}>
-        <div className="container">
-          <div className="section-header">
-            <h2 className="section-header__title">Shop by Category</h2>
-            <span className="section-header__count">{products.length} total pieces</span>
-          </div>
-        </div>
-        <div className="category-grid">
-          {categoryData.map(cat => (
-            <CategoryCard
-              key={cat.handle}
-              title={cat.title}
-              count={cat.count}
-              image={cat.image}
-              href={`${SHOPIFY}/collections/${cat.handle}`}
-            />
-          ))}
-        </div>
+      {/* ═══════════════════════════════════════════
+          SECTION 6 — STORY / SOUL SECTION
+          ═══════════════════════════════════════════ */}
+      <section className="story">
+        <h2 className="story__title">
+          The City Had <em>Soul</em>
+        </h2>
+        <p className="story__text">
+          From Bankhead to Buckhead. From the Westside to Stone Mountain.
+          From Magic City to the Varsity. From Freaknik to Friday night fish frys.
+          Atlanta wasn&rsquo;t just where you lived &mdash; it was how you moved.
+        </p>
+        <a href={`${S}/pages/about`} className="btn-secondary">Read the Story</a>
       </section>
 
-      {/* BRAND STORY */}
-      <section className="brand-story">
-        <div className="container">
-          <h2 className="brand-story__title">For the City.<br />By the City.</h2>
-          <p className="brand-story__text">
-            MAKE ATLANTA GREAT AGAIN is a lifestyle brand born from the belief that Atlanta &mdash; the 
-            culture capital of the South &mdash; deserves to be repped with the same pride and energy 
-            its people carry every single day. From Bankhead to Buckhead, from the Westside to Stone Mountain.
-          </p>
-          <a href={`${SHOPIFY}/pages/about`} className="btn-secondary">About Us</a>
-        </div>
-      </section>
-
-      {/* T-SHIRTS */}
-      <section>
-        <div className="container">
-          <div className="section-header">
-            <h2 className="section-header__title">Tees &amp; Heavyweights</h2>
-            <a href={`${SHOPIFY}/collections/t-shirts`} className="section-header__count">View All {tees.length} &rarr;</a>
+      {/* ═══════════════════════════════════════════
+          SECTION 7 — TEES & HEAVYWEIGHTS
+          ═══════════════════════════════════════════ */}
+      <section className="products" style={{ background: 'var(--obsidian)' }}>
+        <div className="products__header">
+          <div>
+            <div className="products__tag">Essentials</div>
+            <h2 className="products__title">Tees &amp; Heavyweights</h2>
           </div>
+          <a href={`${S}/collections/t-shirts`} className="products__count">
+            All {tees.length} pieces &rarr;
+          </a>
         </div>
         <div className="product-grid">
           {tees.slice(0, 8).map(p => <ProductCard key={p.id} product={p} />)}
         </div>
       </section>
 
-      {/* BUCKET HATS */}
-      <section>
-        <div className="container">
-          <div className="section-header">
-            <h2 className="section-header__title">Bucket Hats</h2>
-            <a href={`${SHOPIFY}/collections/bucket-hats`} className="section-header__count">All {buckets.length} designs &rarr;</a>
+      {/* ═══════════════════════════════════════════
+          SECTION 8 — BUCKET HATS
+          ═══════════════════════════════════════════ */}
+      <section className="products">
+        <div className="products__header">
+          <div>
+            <div className="products__tag">Headwear</div>
+            <h2 className="products__title">Bucket Hats</h2>
           </div>
+          <a href={`${S}/collections/bucket-hats`} className="products__count">
+            All {buckets.length} designs &rarr;
+          </a>
         </div>
         <div className="product-grid">
           {buckets.map(p => <ProductCard key={p.id} product={p} />)}
         </div>
       </section>
 
-      {/* SHIPPING BAR */}
-      <section className="stats" style={{ background: 'var(--navy-deep)' }}>
-        <div className="stat">
-          <div className="stat__number" style={{ fontSize: 24 }}>Free Shipping</div>
-          <div className="stat__label">Over $150</div>
-        </div>
-        <div className="stat">
-          <div className="stat__number" style={{ fontSize: 24 }}>ATL Made</div>
-          <div className="stat__label">Designed with Pride</div>
-        </div>
-        <div className="stat">
-          <div className="stat__number" style={{ fontSize: 24 }}>14 Days</div>
-          <div className="stat__label">Easy Returns</div>
-        </div>
-        <div className="stat">
-          <div className="stat__number" style={{ fontSize: 24 }}>Secure</div>
-          <div className="stat__label">Checkout</div>
+      {/* ═══════════════════════════════════════════
+          SECTION 9 — JOIN THE MOVEMENT
+          ═══════════════════════════════════════════ */}
+      <section className="movement" id="movement">
+        <div className="movement__tag">Join the Movement</div>
+        <h2 className="movement__title">First Access. City Activations. Limited Releases.</h2>
+        <p className="movement__desc">
+          Get notified before drops go live. Be first to city activations, private releases,
+          events, and stories from old Atlanta.
+        </p>
+        <div className="movement__form">
+          <input type="email" className="movement__input" placeholder="Enter your email" />
+          <button className="movement__submit">Join</button>
         </div>
       </section>
     </>
   );
 }
-
