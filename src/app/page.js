@@ -1,7 +1,6 @@
 import { getProducts, formatPrice } from '@/lib/shopify';
 
 export const dynamic = 'force-dynamic';
-
 const S = 'https://makeatlantagreatagain.myshopify.com';
 
 const CULTURE = [
@@ -11,35 +10,32 @@ const CULTURE = [
   { src: '/culture/south-side.png', label: 'Da South Side', sub: 'Young Hustler' },
   { src: '/culture/atlien.png', label: 'Southern Playalistic', sub: 'ATLien' },
   { src: '/culture/club-libra.png', label: 'Hood Icon', sub: 'Club Libra' },
-  { src: '/culture/lean-wit-it.png', label: 'Back When the City Had Soul', sub: 'Lean Wit It Rock Wit It' },
+  { src: '/culture/lean-wit-it.png', label: 'Back When the City Had Soul', sub: 'Lean Wit It' },
 ];
 
 const CRESTS = [
   { src: '/brand/MAGA_brave_gold.png', alt: 'Mascot Seal' },
-  { src: '/brand/MAGA_atlanta_braves.png', alt: 'Crossed Axes 2026' },
+  { src: '/brand/MAGA_atlanta_braves.png', alt: 'Crossed Axes' },
   { src: '/brand/MAGA_hawks.png', alt: 'Hawks' },
   { src: '/brand/MAGA_thrasher.png', alt: 'Thrasher' },
   { src: '/brand/MAGA_falcon.png', alt: 'Falcon' },
-  { src: '/brand/MAGA_braves.png', alt: 'Script Atlanta' },
+  { src: '/brand/MAGA_braves.png', alt: 'Script' },
   { src: '/brand/MAGA_brave.png', alt: 'Gold Grillz' },
   { src: '/brand/MAGA_thrashers.png', alt: 'Thrashers' },
 ];
 
-function ProductCard({ product }) {
+function LookbookItem({ product }) {
   const img = product.images?.[0]?.src;
   const price = product.variants?.[0]?.price;
   const vid = product.variants?.[0]?.id;
+  if (!img) return null;
   return (
-    <a href={`${S}/products/${product.handle}`} className="product-card">
-      <div className="product-card__image-wrapper">
-        {img && <img src={img} alt={product.title} className="product-card__image" loading="lazy" />}
-        <div className="product-card__overlay">
-          <a href={`${S}/cart/${vid}:1`} className="product-card__quick-shop">Add to Cart</a>
-        </div>
-      </div>
-      <div className="product-card__info">
-        <span className="product-card__title">{product.title}</span>
-        <span className="product-card__price">{formatPrice(price)}</span>
+    <a href={`${S}/products/${product.handle}`} className="lookbook__item">
+      <img src={img} alt={product.title} loading="lazy" />
+      <div className="lookbook__item__info">
+        <div className="lookbook__item__title">{product.title}</div>
+        <div className="lookbook__item__price">{formatPrice(price)}</div>
+        <span className="lookbook__item__cta">Shop Now</span>
       </div>
     </a>
   );
@@ -56,12 +52,28 @@ export default async function HomePage() {
   const snaps = byType['Snapback Cap'] || [];
   const tees = byType['T-Shirt'] || [];
   const buckets = byType['Bucket Hat'] || [];
+  const vests = byType['Vest'] || [];
+  const truckers = byType['Trucker Hat'] || [];
+
+  // Mix products for lookbook layout
+  const lookbookSnaps = [snaps[0], snaps[3], snaps[6], snaps[1], snaps[4]].filter(Boolean);
+  const lookbookTees = [tees[0], tees[2], tees[4], tees[1], tees[3]].filter(Boolean);
 
   return (
     <>
-      {/* ══ HERO — cinematic with ATL panorama bg ══ */}
+      {/* ══ HERO — VIDEO BACKGROUND ══ */}
       <section className="hero">
-        <div className="hero__bg" style={{ backgroundImage: 'url(/culture/hero-collage.png)' }} />
+        <video
+          className="hero__video"
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster="/culture/hero-collage.png"
+        >
+          <source src="/culture/hero-video.mp4" type="video/mp4" />
+        </video>
+        <div className="hero__video-overlay" />
         <div className="hero__crests">
           <img src="/brand/MAGA_hawks.png" alt="" className="hero__crest" />
           <img src="/brand/MAGA_atlanta_braves.png" alt="" className="hero__crest" />
@@ -98,7 +110,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* ══ CULTURE GRID — editorial old Atlanta collage ══ */}
+      {/* ══ CULTURE GRID ══ */}
       <section className="culture">
         <div className="culture__header">
           <div className="culture__tag">The Archive</div>
@@ -117,7 +129,45 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* ══ CAMPAIGN MERCH — hero product ══ */}
+      {/* ══ SNAPBACKS — EDITORIAL LOOKBOOK ══ */}
+      <section className="editorial">
+        <div className="editorial__header">
+          <div className="editorial__tag">The Drop</div>
+          <h2 className="editorial__title">Skyline Snapbacks</h2>
+        </div>
+        <div className="editorial__row">
+          {snaps[0] && (
+            <a href={`${S}/products/${snaps[0].handle}`} className="editorial__hero-card product-card">
+              <div className="product-card__image-wrapper">
+                <img src={snaps[0].images?.[0]?.src} alt={snaps[0].title} className="product-card__image" />
+              </div>
+              <div className="product-card__info">
+                <span className="product-card__title">{snaps[0].title}</span>
+                <span className="product-card__price">{formatPrice(snaps[0].variants?.[0]?.price)}</span>
+              </div>
+            </a>
+          )}
+          {snaps.slice(1, 5).map(p => (
+            <a key={p.id} href={`${S}/products/${p.handle}`} className="product-card">
+              <div className="product-card__image-wrapper">
+                <img src={p.images?.[0]?.src} alt={p.title} className="product-card__image" loading="lazy" />
+                <div className="product-card__overlay">
+                  <a href={`${S}/cart/${p.variants?.[0]?.id}:1`} className="product-card__quick-shop">Add to Cart</a>
+                </div>
+              </div>
+              <div className="product-card__info">
+                <span className="product-card__title">{p.title}</span>
+                <span className="product-card__price">{formatPrice(p.variants?.[0]?.price)}</span>
+              </div>
+            </a>
+          ))}
+          <a href={`${S}/collections/snapbacks`} className="editorial__link">
+            View All {snaps.length} Snapbacks &rarr;
+          </a>
+        </div>
+      </section>
+
+      {/* ══ CAMPAIGN MERCH — Blue Pitcher ══ */}
       <section className="campaign">
         <div className="campaign__inner">
           <div className="campaign__image">
@@ -127,7 +177,7 @@ export default async function HomePage() {
             <div className="campaign__tag">Campaign Drop</div>
             <h2 className="campaign__title">The Legendary<br /><em>Blue Pitcher</em></h2>
             <p className="campaign__desc">
-              Atlanta&rsquo;s golden era refreshment. Bankhead Bounce. College Park fuel. 
+              Atlanta&rsquo;s golden era refreshment. Bankhead Bounce. College Park fuel.
               Freaknik nights essential. This ain&rsquo;t merch &mdash; it&rsquo;s a time machine.
             </p>
             <a href={`${S}/collections/all-products`} className="btn-primary">Shop Now</a>
@@ -150,21 +200,21 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* ══ SNAPBACKS ══ */}
-      <section className="products">
-        <div className="products__header">
-          <div>
-            <div className="products__tag">The Drop</div>
-            <h2 className="products__title">Skyline Snapbacks</h2>
-          </div>
-          <a href={`${S}/collections/snapbacks`} className="products__count">All {snaps.length} pieces &rarr;</a>
+      {/* ══ TEES — LOOKBOOK LAYOUT ══ */}
+      <section className="editorial" style={{ background: 'var(--charcoal)' }}>
+        <div className="editorial__header">
+          <div className="editorial__tag">Essentials</div>
+          <h2 className="editorial__title">Tees &amp; Heavyweights</h2>
         </div>
-        <div className="product-grid">
-          {snaps.slice(0, 8).map(p => <ProductCard key={p.id} product={p} />)}
+        <div className="lookbook">
+          {lookbookTees.map(p => <LookbookItem key={p.id} product={p} />)}
+        </div>
+        <div style={{ textAlign: 'center', marginTop: 40 }}>
+          <a href={`${S}/collections/t-shirts`} className="btn-secondary">View All {tees.length} Tees &rarr;</a>
         </div>
       </section>
 
-      {/* ══ STORY with bg image ══ */}
+      {/* ══ STORY ══ */}
       <section className="story">
         <div className="story__bg" style={{ backgroundImage: 'url(/merch/prime-time.png)' }} />
         <div className="story__content">
@@ -178,35 +228,23 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* ══ TEES ══ */}
-      <section className="products" style={{ background: 'var(--obsidian)' }}>
-        <div className="products__header">
-          <div>
-            <div className="products__tag">Essentials</div>
-            <h2 className="products__title">Tees &amp; Heavyweights</h2>
-          </div>
-          <a href={`${S}/collections/t-shirts`} className="products__count">All {tees.length} &rarr;</a>
+      {/* ══ BUCKETS & TRUCKERS — LOOKBOOK ══ */}
+      <section className="editorial">
+        <div className="editorial__header">
+          <div className="editorial__tag">Headwear</div>
+          <h2 className="editorial__title">Bucket Hats &amp; Truckers</h2>
         </div>
-        <div className="product-grid">
-          {tees.slice(0, 8).map(p => <ProductCard key={p.id} product={p} />)}
+        <div className="lookbook">
+          {[...buckets.slice(0, 3), ...truckers.slice(0, 2)].filter(Boolean).map(p => (
+            <LookbookItem key={p.id} product={p} />
+          ))}
         </div>
-      </section>
-
-      {/* ══ BUCKETS ══ */}
-      <section className="products">
-        <div className="products__header">
-          <div>
-            <div className="products__tag">Headwear</div>
-            <h2 className="products__title">Bucket Hats</h2>
-          </div>
-          <a href={`${S}/collections/bucket-hats`} className="products__count">All {buckets.length} &rarr;</a>
-        </div>
-        <div className="product-grid">
-          {buckets.map(p => <ProductCard key={p.id} product={p} />)}
+        <div style={{ textAlign: 'center', marginTop: 40 }}>
+          <a href={`${S}/collections/headwear`} className="btn-secondary">View All Headwear &rarr;</a>
         </div>
       </section>
 
-      {/* ══ JOIN THE MOVEMENT ══ */}
+      {/* ══ MOVEMENT ══ */}
       <section className="movement" id="movement">
         <div className="movement__tag">Join the Movement</div>
         <h2 className="movement__title">First Access. City Activations. Limited Releases.</h2>
