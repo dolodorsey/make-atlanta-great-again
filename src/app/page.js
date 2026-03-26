@@ -80,9 +80,6 @@ export default async function HomePage() {
           <img src="/brand/MAGA_thrasher.png" alt="" className="hero__crest" />
         </div>
         <div className="hero__content">
-          <div className="hero__tag">2026 Collection</div>
-          <h1 className="hero__title">When Atlanta<br /><em>Was Atlanta</em></h1>
-          <p className="hero__sub">Premium streetwear for the ones who remember. 64 pieces. 7 categories.</p>
           <div className="hero__actions">
             <a href={`${S}/collections/all-products`} className="btn-primary">Shop All 64 Pieces</a>
             <a href="#movement" className="btn-secondary">Join the Movement</a>
