@@ -62,7 +62,7 @@ export default async function HomePage() {
         <div className="hero__video-overlay" />
         <div className="hero__content">
           <div className="hero__actions">
-            <a href={`${S}/collections/all-products`} className="btn-primary">Shop All 64 Pieces</a>
+            <a href="/shop" className="btn-primary">Shop All 64 Pieces</a>
             <a href="#movement" className="btn-secondary">Join the Movement</a>
           </div>
         </div>
