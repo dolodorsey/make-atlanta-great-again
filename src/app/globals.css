@@ -284,6 +284,17 @@ h1, h2, h3, h4, h5, h6 {
   .nav__links { display: none; }
   .nav__logo { font-size: 11px; }
 }
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 1001;
+}
+@media (max-width: 768px) {
+  .mobile-menu-btn { display: block; }
+}
 
 /* Hero */
 .hero {

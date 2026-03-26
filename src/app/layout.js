@@ -1,4 +1,5 @@
 import './globals.css';
+import MobileMenu from '@/components/MobileMenu';
 
 export const metadata = {
   title: 'MAKE ATLANTA GREAT AGAIN — Premium Atlanta Streetwear',
@@ -38,6 +39,7 @@ export default function RootLayout({ children }) {
             ))}
           </ul>
           <a href={`${SHOPIFY_BASE}/cart`} className="nav__link" style={{ color: '#C9A84C' }}>Cart</a>
+          <MobileMenu />
         </nav>
         <main>{children}</main>
         <footer className="footer">
