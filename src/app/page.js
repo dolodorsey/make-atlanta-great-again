@@ -2,37 +2,56 @@ export const dynamic = 'force-dynamic';
 const S = 'https://makeatlantagreatagain.myshopify.com';
 
 const PIECES = [
-  '/mockups/mascot-boutique.png','/mockups/axes-blue-lifestyle.png',
-  '/mockups/truckers-bar-red.png','/mockups/falcon-green-store.png',
-  '/mockups/varsity-store-white.png','/mockups/mascot-green-lifestyle.png',
-  '/mockups/atl-store-display.png','/mockups/snapbacks-peachtree.png',
-  '/mockups/truckers-models.png','/mockups/script-pink-tee.png',
-  '/mockups/chieftain-cream-tee.png','/mockups/patriot-vest-set.png',
+  { src: '/mockups/design-grid-9up.png', cat: 'all' },
+  { src: '/mockups/olive-chief-tee-lookbook.png', cat: 'tees' },
+  { src: '/mockups/pink-shop-display.png', cat: 'tees' },
+  { src: '/mockups/trucker-hat-floating.png', cat: 'truckers' },
+  { src: '/mockups/pink-axes-lookbook.png', cat: 'tees' },
+  { src: '/mockups/charcoal-flag-vest.png', cat: 'vests' },
+  { src: '/mockups/charcoal-falcons-vest.png', cat: 'vests' },
+  { src: '/mockups/bucket-hat-museum.png', cat: 'buckets' },
+  { src: '/mockups/charcoal-braves-vest.png', cat: 'vests' },
+  { src: '/mockups/hawks-bucket-lookbook.png', cat: 'buckets' },
+  { src: '/mockups/falcons-bucket-museum.png', cat: 'buckets' },
+  { src: '/mockups/braves-bucket-lookbook.png', cat: 'buckets' },
+  { src: '/mockups/mascot-boutique.png', cat: 'tees' },
+  { src: '/mockups/axes-blue-lifestyle.png', cat: 'tees' },
+  { src: '/mockups/truckers-bar-red.png', cat: 'truckers' },
+  { src: '/mockups/falcon-green-store.png', cat: 'tees' },
+  { src: '/mockups/varsity-store-white.png', cat: 'tees' },
+  { src: '/mockups/mascot-green-lifestyle.png', cat: 'tees' },
+  { src: '/mockups/atl-store-display.png', cat: 'all' },
+  { src: '/mockups/snapbacks-peachtree.png', cat: 'snapbacks' },
+  { src: '/mockups/truckers-models.png', cat: 'truckers' },
+  { src: '/mockups/script-pink-tee.png', cat: 'tees' },
+  { src: '/mockups/chieftain-cream-tee.png', cat: 'tees' },
+  { src: '/mockups/patriot-vest-set.png', cat: 'vests' },
+  { src: '/mockups/axes-pink-tee.png', cat: 'tees' },
+  { src: '/mockups/axes-trucker-red.png', cat: 'truckers' },
+  { src: '/mockups/braves-blue-tee.png', cat: 'tees' },
+  { src: '/mockups/braves-white-tee.png', cat: 'tees' },
+  { src: '/mockups/falcon-cream-tee.png', cat: 'tees' },
+  { src: '/mockups/falcon-green-tee.png', cat: 'tees' },
+  { src: '/mockups/falcon-truckers-black.png', cat: 'truckers' },
+  { src: '/mockups/mascot-snapback-float.png', cat: 'snapbacks' },
+  { src: '/mockups/mascot-snapback.png', cat: 'snapbacks' },
+  { src: '/mockups/mascot-stadium-tee.png', cat: 'tees' },
+  { src: '/mockups/mascot-vest.png', cat: 'vests' },
+  { src: '/mockups/script-trucker-collector.png', cat: 'truckers' },
+  { src: '/mockups/script-trucker-float.png', cat: 'truckers' },
+  { src: '/mockups/snapbacks-bar-blue.png', cat: 'snapbacks' },
+  { src: '/mockups/snapbacks-boutique-red.png', cat: 'snapbacks' },
+  { src: '/mockups/white-tees-grid.png', cat: 'tees' },
 ];
 
-const ALL_PRODUCTS = [
-  { src: '/mockups/script-pink-tee.png', label: 'Script Tomahawk Tee', cat: 'Tees', href: `${S}/collections/t-shirts` },
-  { src: '/mockups/axes-trucker-red.png', label: 'Chieftain Trucker', cat: 'Hats', href: `${S}/collections/trucker-hats` },
-  { src: '/mockups/chieftain-cream-tee.png', label: 'Chieftain Series', cat: 'Tees', href: `${S}/collections/t-shirts` },
-  { src: '/mockups/mascot-snapback.png', label: 'Gold Grillz Snap', cat: 'Hats', href: `${S}/collections/snapbacks` },
-  { src: '/mockups/falcon-green-tee.png', label: 'Falcon Legacy Tee', cat: 'Tees', href: `${S}/collections/t-shirts` },
-  { src: '/mockups/script-trucker-float.png', label: 'Script Trucker', cat: 'Hats', href: `${S}/collections/trucker-hats` },
-  { src: '/mockups/braves-blue-tee.png', label: 'Braves Script Tee', cat: 'Tees', href: `${S}/collections/t-shirts` },
-  { src: '/mockups/mascot-snapback-float.png', label: 'Mascot Snapback', cat: 'Hats', href: `${S}/collections/snapbacks` },
-  { src: '/mockups/braves-white-tee.png', label: 'Atlanta 2021 Champs', cat: 'Tees', href: `${S}/collections/t-shirts` },
-  { src: '/mockups/script-trucker-collector.png', label: 'Collector Edition', cat: 'Hats', href: `${S}/collections/trucker-hats` },
-  { src: '/mockups/mascot-vest.png', label: 'Chieftain Vest', cat: 'Vests', href: `${S}/collections/vests` },
-  { src: '/mockups/snapbacks-bar-blue.png', label: 'Blue Collection', cat: 'Hats', href: `${S}/collections/snapbacks` },
-];
-
-const COLLECTIONS = [
-  { src: '/mockups/snapbacks-boutique-red.png', title: 'Snapbacks', count: '20', href: `${S}/collections/snapbacks` },
-  { src: '/mockups/white-tees-grid.png', title: 'T-Shirts', count: '16', href: `${S}/collections/t-shirts` },
-  { src: '/mockups/mascot-vest.png', title: 'Vests', count: '11', href: `${S}/collections/vests` },
-  { src: '/mockups/falcon-truckers-black.png', title: 'Truckers', count: '10', href: `${S}/collections/trucker-hats` },
-  { src: '/mockups/axes-blue-tee.png', title: 'Buckets', count: '6', href: `${S}/collections/bucket-hats` },
-  { src: '/mockups/mascot-stadium-tee.png', title: 'All 64', count: '64', href: `${S}/collections/all-products` },
-];
+const CAT_LINKS = {
+  all: `${S}/collections/all-products`,
+  tees: `${S}/collections/t-shirts`,
+  vests: `${S}/collections/vests`,
+  snapbacks: `${S}/collections/snapbacks`,
+  truckers: `${S}/collections/trucker-hats`,
+  buckets: `${S}/collections/bucket-hats`,
+};
 
 const LOGOS = [
   '/brand/MAGA_brave_gold.png','/brand/MAGA_atlanta_braves.png',
@@ -41,6 +60,34 @@ const LOGOS = [
   '/brand/MAGA_brave.png','/brand/MAGA_braves.png',
   '/brand/peachtree-script.png','/brand/peachtree-skyline.png',
   '/brand/braves-script-white.png','/brand/FLAG.png',
+];
+
+const GALLERY = [
+  { src: '/mockups/olive-chief-tee-lookbook.png', label: 'Chieftain Tee — Olive', cat: 'tees' },
+  { src: '/mockups/charcoal-braves-vest.png', label: 'Braves Script Vest', cat: 'vests' },
+  { src: '/mockups/trucker-hat-floating.png', label: 'Script Trucker — White', cat: 'truckers' },
+  { src: '/mockups/pink-axes-lookbook.png', label: 'Crossed Axes Tee — Pink', cat: 'tees' },
+  { src: '/mockups/hawks-bucket-lookbook.png', label: 'Hawks Crest Bucket', cat: 'buckets' },
+  { src: '/mockups/charcoal-flag-vest.png', label: 'Patriot Flag Vest', cat: 'vests' },
+  { src: '/mockups/braves-bucket-lookbook.png', label: 'Braves Script Bucket', cat: 'buckets' },
+  { src: '/mockups/charcoal-falcons-vest.png', label: 'Falcon Legacy Vest', cat: 'vests' },
+  { src: '/mockups/falcons-bucket-museum.png', label: 'Falcon Bucket — Museum', cat: 'buckets' },
+  { src: '/mockups/bucket-hat-museum.png', label: 'Chieftain Bucket', cat: 'buckets' },
+  { src: '/mockups/mascot-snapback.png', label: 'Gold Grillz Snap', cat: 'snapbacks' },
+  { src: '/mockups/pink-shop-display.png', label: 'Pink Collection', cat: 'tees' },
+  { src: '/mockups/script-pink-tee.png', label: 'Script Tomahawk Tee', cat: 'tees' },
+  { src: '/mockups/mascot-vest.png', label: 'Chieftain Cutoff', cat: 'vests' },
+  { src: '/mockups/snapbacks-boutique-red.png', label: 'Snapback Collection', cat: 'snapbacks' },
+  { src: '/mockups/axes-trucker-red.png', label: 'Axes Trucker — Red', cat: 'truckers' },
+];
+
+const COLLECTIONS = [
+  { src: '/mockups/olive-chief-tee-lookbook.png', title: 'T-Shirts', count: '16', href: `${S}/collections/t-shirts` },
+  { src: '/mockups/snapbacks-boutique-red.png', title: 'Snapbacks', count: '20', href: `${S}/collections/snapbacks` },
+  { src: '/mockups/charcoal-falcons-vest.png', title: 'Vests', count: '11', href: `${S}/collections/vests` },
+  { src: '/mockups/trucker-hat-floating.png', title: 'Truckers', count: '10', href: `${S}/collections/trucker-hats` },
+  { src: '/mockups/hawks-bucket-lookbook.png', title: 'Bucket Hats', count: '6', href: `${S}/collections/bucket-hats` },
+  { src: '/mockups/design-grid-9up.png', title: 'All 64 Pieces', count: '64', href: `${S}/collections/all-products` },
 ];
 
 const CULTURE = [
@@ -54,67 +101,88 @@ const CULTURE = [
 ];
 
 export default function HomePage() {
+  const doubledPieces = [...PIECES, ...PIECES];
   return (
     <>
-      {/* HERO — compact 50vh */}
+      {/* HERO */}
       <section className="hero">
         <video className="hero__video" autoPlay muted loop playsInline poster="/culture/hero-collage.png">
           <source src="/culture/hero-video.mp4" type="video/mp4" />
         </video>
         <div className="hero__video-overlay" />
+        <div className="hero__crests">
+          <img src="/brand/MAGA_hawks.png" alt="" className="hero__crest" />
+          <img src="/brand/MAGA_atlanta_braves.png" alt="" className="hero__crest" />
+          <img src="/brand/MAGA_thrasher.png" alt="" className="hero__crest" />
+        </div>
         <div className="hero__content">
+          <div className="hero__tag">2026 Collection</div>
+          <h1 className="hero__title">Make Atlanta<br /><em>Great Again</em></h1>
+          <p className="hero__sub">64 pieces. For the ones who remember when the city had soul.</p>
           <div className="hero__actions">
-            <a href="/shop" className="btn-primary">Shop All 64 Pieces</a>
-            <a href="#movement" className="btn-secondary">Join the Movement</a>
+            <a href="/shop" className="btn-primary">Shop the Collection</a>
+            <a href="#pieces" className="btn-secondary">See the Pieces</a>
           </div>
         </div>
       </section>
 
-      {/* PIECES — compact horizontal scroll */}
-      <section className="showcase">
-        <div className="showcase__header">
+      {/* THE PIECES — INFINITE AUTO-SCROLL MARQUEE */}
+      <section className="pieces" id="pieces">
+        <div className="pieces__header">
           <div className="showcase__tag">2026 Collection</div>
           <h2 className="showcase__title">The Pieces</h2>
         </div>
-        <div className="showcase__scroll">
-          {PIECES.map((src, i) => (
-            <a key={i} href="/shop" className="showcase__card"><img src={src} alt="" loading="lazy" /></a>
-          ))}
+        <div className="pieces__track-wrap">
+          <div className="pieces__track">
+            {doubledPieces.map((p, i) => (
+              <a key={i} href={CAT_LINKS[p.cat]} className="pieces__card">
+                <img src={p.src} alt="" loading="lazy" />
+              </a>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* LOGOS — compact */}
+      {/* LOGOS */}
       <section className="logos">
         <div className="logos__grid">
           {LOGOS.map((src, i) => (
-            <a key={i} href={`${S}/collections/all-products`} className="logos__item"><img src={src} alt="" loading="lazy" /></a>
+            <a key={i} href={`${S}/collections/all-products`} className="logos__item">
+              <img src={src} alt="" loading="lazy" />
+            </a>
           ))}
         </div>
       </section>
 
-      {/* ALL PRODUCT TYPES — mixed grid, tees + hats + vests together */}
+      {/* PICK YOUR PIECE — under logos, click routes to category */}
       <section className="editorial">
         <div className="editorial__header">
-          <div className="showcase__tag">Tees &bull; Hats &bull; Vests</div>
-          <h2 className="showcase__title">64 Pieces. 6 Categories.</h2>
+          <div className="showcase__tag">Shirts &bull; Hats &bull; Vests &bull; Buckets</div>
+          <h2 className="showcase__title">Pick Your Piece</h2>
         </div>
         <div className="editorial__grid" style={{ gridTemplateColumns: 'repeat(4, 1fr)' }}>
-          {ALL_PRODUCTS.map((c, i) => (
-            <a key={i} href={c.href} className="editorial__card">
+          {GALLERY.map((c, i) => (
+            <a key={i} href={CAT_LINKS[c.cat]} className="editorial__card">
               <div className="editorial__card-img"><img src={c.src} alt={c.label} loading="lazy" /></div>
-              <div className="editorial__card-label">{c.label} <span style={{ color: 'var(--gm)', marginLeft: 8, fontSize: 8, letterSpacing: '0.12em' }}>{c.cat}</span></div>
+              <div className="editorial__card-label">
+                {c.label}
+                <span style={{ color: 'var(--gm)', marginLeft: 8, fontSize: 8, letterSpacing: '0.12em', textTransform: 'uppercase' }}>
+                  {c.cat === 'tees' ? 'SHIRT' : c.cat === 'vests' ? 'VEST' : 'HAT'}
+                </span>
+              </div>
             </a>
           ))}
         </div>
-        <div style={{ textAlign: 'center', marginTop: 24, display: 'flex', gap: 10, justifyContent: 'center', flexWrap: 'wrap' }}>
-          <a href={`${S}/collections/t-shirts`} className="btn-secondary">Shop Tees</a>
+        <div style={{ textAlign: 'center', marginTop: 32, display: 'flex', gap: 10, justifyContent: 'center', flexWrap: 'wrap' }}>
+          <a href={`${S}/collections/t-shirts`} className="btn-secondary">Shop Shirts</a>
           <a href={`${S}/collections/snapbacks`} className="btn-secondary">Shop Snapbacks</a>
           <a href={`${S}/collections/trucker-hats`} className="btn-secondary">Shop Truckers</a>
+          <a href={`${S}/collections/bucket-hats`} className="btn-secondary">Shop Buckets</a>
           <a href={`${S}/collections/vests`} className="btn-secondary">Shop Vests</a>
         </div>
       </section>
 
-      {/* COLLECTIONS — compact 3x2 */}
+      {/* COLLECTIONS */}
       <section className="collections">
         <div className="collections__header">
           <div className="collections__tag">Shop by Collection</div>
@@ -133,14 +201,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* MANIFESTO — tight */}
+      {/* MANIFESTO */}
       <section className="manifesto">
         <p className="manifesto__text">
           Atlanta was never just a city. It was a <strong>feeling</strong>. Before soul got replaced by sameness. <strong>This is for the ones who remember.</strong>
         </p>
       </section>
 
-      {/* CULTURE — compact */}
+      {/* CULTURE */}
       <section className="culture">
         <div className="culture__header">
           <div className="culture__tag">The Archive</div>
@@ -159,7 +227,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CAMPAIGN + STORY — side by side */}
+      {/* CAMPAIGN */}
       <section className="campaign">
         <div className="campaign__inner">
           <div className="campaign__image"><img src="/merch/pitcher-tee.png" alt="Blue MF Pitcher" /></div>
