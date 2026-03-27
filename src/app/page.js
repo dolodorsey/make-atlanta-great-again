@@ -95,13 +95,14 @@ const COLLECTIONS = [
 ];
 
 const CULTURE = [
-  { src: '/culture/waffle-house.png', label: 'LATE NIGHT ATLANTA', sub: 'Waffle House', tall: true },
-  { src: '/culture/marta.png', label: 'OLD ATLANTA ENERGY', sub: 'MARTA', wide: true },
-  { src: '/culture/cascade.png', label: 'CITY FULL OF FLAVOR', sub: 'Cascade', tall: true },
   { src: '/culture/south-side.png', label: 'SOUTHSIDE MEMORIES', sub: 'Southside' },
   { src: '/culture/atlien.png', label: 'REAL ATLANTA ONLY', sub: 'ATLien' },
+  { src: '/culture/cascade.png', label: 'CITY FULL OF FLAVOR', sub: 'Cascade' },
+  { src: '/culture/waffle-house.png', label: 'LATE NIGHT ATLANTA', sub: 'Waffle House' },
   { src: '/culture/club-libra.png', label: 'BACK WHEN IT WAS HITTIN', sub: 'Club Libra' },
   { src: '/culture/lean-wit-it.png', label: 'WHEN THE CITY HAD SAUCE', sub: 'The City' },
+  { src: '/mockups/blue-mf-pitcher-tee.png', label: 'CITY CLASSIC', sub: 'Blue MF Pitcher' },
+  { src: '/mockups/hypnotic-nuvo-tee.png', label: 'OLD ATLANTA ENERGY', sub: 'Hypnotic & Nuvo' },
 ];
 
 export default function HomePage() {
@@ -230,7 +231,7 @@ export default function HomePage() {
         </div>
         <div className="culture__grid">
           {CULTURE.map((c, i) => (
-            <div key={i} className={`culture__card${c.tall ? ' culture__card--tall' : ''}${c.wide ? ' culture__card--wide' : ''}`}>
+            <div key={i} className="culture__card">
               <img src={c.src} alt={c.label} loading="lazy" />
               <div className="culture__card__overlay">
                 <div className="culture__card__label">{c.label}</div>
