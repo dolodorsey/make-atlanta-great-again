@@ -3,32 +3,46 @@ const S = 'https://makeatlantagreatagain.myshopify.com';
 
 const PIECES = [
   { src: '/mockups/design-grid-9up.png', cat: 'all' },
+  { src: '/mockups/shorts-script-black-1.png', cat: 'shorts' },
   { src: '/mockups/trucker-hat-floating.png', cat: 'truckers' },
   { src: '/mockups/charcoal-flag-vest.png', cat: 'vests' },
+  { src: '/mockups/shorts-axes-red.png', cat: 'shorts' },
   { src: '/mockups/blue-mf-pitcher-tee.png', cat: 'tees' },
   { src: '/mockups/hawks-bucket-lookbook.png', cat: 'buckets' },
+  { src: '/mockups/shorts-axes-navy-museum.png', cat: 'shorts' },
   { src: '/mockups/mascot-snapback-float.png', cat: 'snapbacks' },
   { src: '/mockups/pink-axes-lookbook.png', cat: 'tees' },
+  { src: '/mockups/shorts-script-white.png', cat: 'shorts' },
   { src: '/mockups/charcoal-braves-vest.png', cat: 'vests' },
   { src: '/mockups/axes-trucker-red.png', cat: 'truckers' },
+  { src: '/mockups/shorts-falcon-white-1.png', cat: 'shorts' },
   { src: '/mockups/falcons-bucket-museum.png', cat: 'buckets' },
   { src: '/mockups/olive-chief-tee-lookbook.png', cat: 'tees' },
+  { src: '/mockups/shorts-axes-navy-boutique.png', cat: 'shorts' },
   { src: '/mockups/snapbacks-peachtree.png', cat: 'snapbacks' },
   { src: '/mockups/charcoal-falcons-vest.png', cat: 'vests' },
+  { src: '/mockups/shorts-mascot-black.png', cat: 'shorts' },
   { src: '/mockups/braves-bucket-lookbook.png', cat: 'buckets' },
   { src: '/mockups/hypnotic-nuvo-tee.png', cat: 'tees' },
+  { src: '/mockups/shorts-axes-white-museum.png', cat: 'shorts' },
   { src: '/mockups/falcon-truckers-black.png', cat: 'truckers' },
   { src: '/mockups/mascot-vest.png', cat: 'vests' },
+  { src: '/mockups/shorts-script-navy.png', cat: 'shorts' },
   { src: '/mockups/script-pink-tee.png', cat: 'tees' },
   { src: '/mockups/bucket-hat-museum.png', cat: 'buckets' },
+  { src: '/mockups/shorts-axes-red-4panel.png', cat: 'shorts' },
   { src: '/mockups/truckers-bar-red.png', cat: 'truckers' },
   { src: '/mockups/mascot-boutique.png', cat: 'tees' },
+  { src: '/mockups/shorts-script-red-museum.png', cat: 'shorts' },
   { src: '/mockups/snapbacks-bar-blue.png', cat: 'snapbacks' },
   { src: '/mockups/patriot-vest-set.png', cat: 'vests' },
+  { src: '/mockups/shorts-falcon-white-2.png', cat: 'shorts' },
   { src: '/mockups/falcon-green-store.png', cat: 'tees' },
   { src: '/mockups/script-trucker-collector.png', cat: 'truckers' },
+  { src: '/mockups/shorts-mascot-black-museum.png', cat: 'shorts' },
   { src: '/mockups/atl-store-display.png', cat: 'all' },
   { src: '/mockups/chieftain-cream-tee.png', cat: 'tees' },
+  { src: '/mockups/shorts-script-black-2.png', cat: 'shorts' },
   { src: '/mockups/snapbacks-boutique-red.png', cat: 'snapbacks' },
   { src: '/mockups/axes-blue-lifestyle.png', cat: 'tees' },
   { src: '/mockups/script-trucker-float.png', cat: 'truckers' },
@@ -53,6 +67,7 @@ const CAT_LINKS = {
   snapbacks: `${S}/collections/snapbacks`,
   truckers: `${S}/collections/trucker-hats`,
   buckets: `${S}/collections/bucket-hats`,
+  shorts: `${S}/collections/swim-trunks`,
 };
 
 const LOGOS = [
@@ -68,25 +83,26 @@ const LOGOS = [
 
 const GALLERY = [
   { src: '/mockups/olive-chief-tee-lookbook.png', label: 'Chieftain Tee — Olive', cat: 'tees' },
+  { src: '/mockups/shorts-axes-navy-boutique.png', label: 'Crossed Axes Swim — Navy', cat: 'shorts' },
   { src: '/mockups/pink-axes-lookbook.png', label: 'Crossed Axes Tee — Pink', cat: 'tees' },
-  { src: '/mockups/script-pink-tee.png', label: 'Script Tomahawk Tee', cat: 'tees' },
-  { src: '/mockups/pink-shop-display.png', label: 'Pink Collection', cat: 'tees' },
   { src: '/mockups/charcoal-braves-vest.png', label: 'Braves Script Vest', cat: 'vests' },
-  { src: '/mockups/charcoal-flag-vest.png', label: 'Patriot Flag Vest', cat: 'vests' },
-  { src: '/mockups/charcoal-falcons-vest.png', label: 'Falcon Legacy Vest', cat: 'vests' },
-  { src: '/mockups/mascot-vest.png', label: 'Chieftain Cutoff', cat: 'vests' },
+  { src: '/mockups/shorts-script-black-1.png', label: 'Script Swim — Black', cat: 'shorts' },
   { src: '/mockups/mascot-snapback.png', label: 'Gold Grillz Snap', cat: 'snapbacks' },
-  { src: '/mockups/snapbacks-boutique-red.png', label: 'Snapback Collection', cat: 'snapbacks' },
+  { src: '/mockups/shorts-falcon-white-1.png', label: 'Falcon Swim — White', cat: 'shorts' },
+  { src: '/mockups/charcoal-flag-vest.png', label: 'Patriot Flag Vest', cat: 'vests' },
   { src: '/mockups/trucker-hat-floating.png', label: 'Script Trucker — White', cat: 'truckers' },
-  { src: '/mockups/axes-trucker-red.png', label: 'Axes Trucker — Red', cat: 'truckers' },
+  { src: '/mockups/shorts-axes-red.png', label: 'Crossed Axes Swim — Red', cat: 'shorts' },
   { src: '/mockups/hawks-bucket-lookbook.png', label: 'Hawks Crest Bucket', cat: 'buckets' },
-  { src: '/mockups/braves-bucket-lookbook.png', label: 'Braves Script Bucket', cat: 'buckets' },
-  { src: '/mockups/falcons-bucket-museum.png', label: 'Falcon Bucket — Museum', cat: 'buckets' },
-  { src: '/mockups/bucket-hat-museum.png', label: 'Chieftain Bucket', cat: 'buckets' },
+  { src: '/mockups/script-pink-tee.png', label: 'Script Tomahawk Tee', cat: 'tees' },
+  { src: '/mockups/shorts-mascot-black.png', label: 'Mascot Swim — Black', cat: 'shorts' },
+  { src: '/mockups/axes-trucker-red.png', label: 'Axes Trucker — Red', cat: 'truckers' },
+  { src: '/mockups/charcoal-falcons-vest.png', label: 'Falcon Legacy Vest', cat: 'vests' },
+  { src: '/mockups/shorts-script-navy.png', label: 'Script Swim — Navy', cat: 'shorts' },
 ];
 
 const COLLECTIONS = [
   { src: '/mockups/olive-chief-tee-lookbook.png', title: 'T-Shirts', href: `${S}/collections/t-shirts` },
+  { src: '/mockups/shorts-axes-navy-boutique.png', title: 'Swim Trunks', href: `${S}/collections/swim-trunks` },
   { src: '/mockups/snapbacks-boutique-red.png', title: 'Snapbacks', href: `${S}/collections/snapbacks` },
   { src: '/mockups/charcoal-falcons-vest.png', title: 'Vests', href: `${S}/collections/vests` },
   { src: '/mockups/trucker-hat-floating.png', title: 'Truckers', href: `${S}/collections/trucker-hats` },
@@ -206,7 +222,7 @@ export default function HomePage() {
               <div className="editorial__card-label">
                 {c.label}
                 <span style={{ color: 'var(--gm)', marginLeft: 8, fontSize: 8, letterSpacing: '0.12em', textTransform: 'uppercase' }}>
-                  {c.cat === 'tees' ? 'SHIRT' : c.cat === 'vests' ? 'VEST' : 'HAT'}
+                  {c.cat === 'tees' ? 'SHIRT' : c.cat === 'vests' ? 'VEST' : c.cat === 'shorts' ? 'SHORTS' : 'HAT'}
                 </span>
               </div>
             </a>
@@ -218,6 +234,7 @@ export default function HomePage() {
           <a href={`${S}/collections/trucker-hats`} className="btn-secondary">Shop Truckers</a>
           <a href={`${S}/collections/bucket-hats`} className="btn-secondary">Shop Buckets</a>
           <a href={`${S}/collections/vests`} className="btn-secondary">Shop Vests</a>
+          <a href={`${S}/collections/swim-trunks`} className="btn-secondary">Shop Swim Trunks</a>
         </div>
       </section>
 
