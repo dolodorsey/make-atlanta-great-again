@@ -1,4 +1,5 @@
 import { getProducts, formatPrice } from '@/lib/shopify';
+import ColorCycleCard from '@/components/ColorCycleCard';
 
 export const dynamic = 'force-dynamic';
 const S = 'https://makeatlantagreatagain.myshopify.com';
@@ -11,25 +12,6 @@ const CATEGORIES = [
   { key: 'Bucket Hat', label: 'Bucket Hats', id: 'buckets' },
   { key: 'Pants', label: 'Pants', id: 'pants' },
 ];
-
-function Card({ p }) {
-  const img = p.images?.[0]?.src;
-  const pr = p.variants?.[0]?.price;
-  const vid = p.variants?.[0]?.id;
-  if (!img) return null;
-  return (
-    <a href={`${S}/products/${p.handle}`} className="dc">
-      <div className="dc__wrap">
-        <img src={img} alt={p.title} className="dc__img" loading="lazy" />
-        <a href={`${S}/cart/${vid}:1`} className="dc__cta">Add to Cart</a>
-      </div>
-      <div className="dc__info">
-        <div className="dc__name">{p.title}</div>
-        <div className="dc__price">{formatPrice(pr)}</div>
-      </div>
-    </a>
-  );
-}
 
 export default async function ShopPage() {
   const products = await getProducts();
@@ -72,7 +54,9 @@ export default async function ShopPage() {
               </a>
             </div>
             <div className="dgrid">
-              {items.map(p => <Card key={p.id} p={p} />)}
+              {items.map(p => (
+                <ColorCycleCard key={p.id} product={p} storeUrl={S} />
+              ))}
             </div>
           </section>
         );
