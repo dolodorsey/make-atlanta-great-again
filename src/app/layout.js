@@ -24,6 +24,7 @@ const NAV = [
   { label: 'Truckers', href: `${SHOPIFY}/collections/trucker-hats` },
   { label: 'Buckets', href: `${SHOPIFY}/collections/bucket-hats` },
   { label: 'Vests', href: `${SHOPIFY}/collections/vests` },
+  { label: 'Swim Trunks', href: `${SHOPIFY}/collections/swim-trunks` },
 ];
 
 export default function RootLayout({ children }) {
@@ -65,6 +66,7 @@ export default function RootLayout({ children }) {
               <a href={`${SHOPIFY}/collections/trucker-hats`} className="footer__link">Truckers</a>
               <a href={`${SHOPIFY}/collections/bucket-hats`} className="footer__link">Buckets</a>
               <a href={`${SHOPIFY}/collections/vests`} className="footer__link">Vests</a>
+              <a href={`${SHOPIFY}/collections/swim-trunks`} className="footer__link">Swim Trunks</a>
             </div>
             <div>
               <div className="footer__heading">Info</div>
