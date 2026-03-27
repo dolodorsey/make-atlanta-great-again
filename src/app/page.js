@@ -69,8 +69,6 @@ const GALLERY = [
   { src: '/mockups/pink-axes-lookbook.png', label: 'Crossed Axes Tee — Pink', cat: 'tees' },
   { src: '/mockups/script-pink-tee.png', label: 'Script Tomahawk Tee', cat: 'tees' },
   { src: '/mockups/pink-shop-display.png', label: 'Pink Collection', cat: 'tees' },
-  { src: '/mockups/blue-mf-pitcher-tee.png', label: 'Blue MF Pitcher Tee', cat: 'tees' },
-  { src: '/mockups/hypnotic-nuvo-tee.png', label: 'Hypnotic & Nuvo Tee', cat: 'tees' },
   { src: '/mockups/charcoal-braves-vest.png', label: 'Braves Script Vest', cat: 'vests' },
   { src: '/mockups/charcoal-flag-vest.png', label: 'Patriot Flag Vest', cat: 'vests' },
   { src: '/mockups/charcoal-falcons-vest.png', label: 'Falcon Legacy Vest', cat: 'vests' },
