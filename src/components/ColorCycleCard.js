@@ -34,7 +34,7 @@ function getSwatchColor(colorName) {
   return COLOR_MAP[colorName] || '#555';
 }
 
-export default function ColorCycleCard({ product, storeUrl }) {
+export default function ColorCycleCard({ product, storeUrl, blackOnly = false }) {
   const { title, handle, variants, images, options } = product;
   const firstImage = images?.[0]?.src;
   const firstVariantId = variants?.[0]?.id;
@@ -57,6 +57,8 @@ export default function ColorCycleCard({ product, storeUrl }) {
   variants?.forEach(v => {
     const color = v[`option${colorPos}`];
     if (color && !seenColors.has(color) && v.image_id && imageMap[v.image_id]) {
+      // If blackOnly, skip non-black colors
+      if (blackOnly && color.toLowerCase() !== 'black') return;
       seenColors.add(color);
       colorImages.push({ color, src: imageMap[v.image_id], variantId: v.id });
       colorVariantIds[color] = v.id;

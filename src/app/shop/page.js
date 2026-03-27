@@ -11,6 +11,7 @@ const CATEGORIES = [
   { key: 'Trucker Hat', label: 'Trucker Hats', id: 'truckers' },
   { key: 'Bucket Hat', label: 'Bucket Hats', id: 'buckets' },
   { key: 'Pants', label: 'Pants', id: 'pants' },
+  { key: 'Swim Trunks', label: 'Swim Trunks', id: 'swim-trunks' },
 ];
 
 export default async function ShopPage() {
@@ -24,23 +25,6 @@ export default async function ShopPage() {
 
   return (
     <>
-      {/* Category jump bar — fixed at top */}
-      <section className="shop-nav">
-        <div className="shop-nav__inner">
-          {CATEGORIES.map(cat => {
-            const count = (byType[cat.key] || []).length;
-            return count > 0 ? (
-              <a key={cat.id} href={`#${cat.id}`} className="shop-nav__link">
-                {cat.label} <span className="shop-nav__count">({count})</span>
-              </a>
-            ) : null;
-          })}
-          <a href={`${S}/collections/all-products`} className="shop-nav__link shop-nav__link--shopify">
-            Shopify Store &rarr;
-          </a>
-        </div>
-      </section>
-
       {/* All categories with anchor IDs */}
       {CATEGORIES.map(cat => {
         const items = byType[cat.key] || [];
@@ -54,9 +38,18 @@ export default async function ShopPage() {
               </a>
             </div>
             <div className="dgrid">
-              {items.map(p => (
-                <ColorCycleCard key={p.id} product={p} storeUrl={S} />
-              ))}
+              {items.map(p => {
+                // For T-Shirts with multiple colors including Black, only show Black
+                const isShirt = cat.key === 'T-Shirt';
+                const colorOpt = p.options?.find(o => o.name.toLowerCase() === 'color');
+                const colors = colorOpt?.values || [];
+                const hasBlack = colors.some(c => c.toLowerCase() === 'black');
+                const isMultiColor = colors.length > 1;
+                const showBlackOnly = isShirt && hasBlack && isMultiColor;
+                return (
+                  <ColorCycleCard key={p.id} product={p} storeUrl={S} blackOnly={showBlackOnly} />
+                );
+              })}
             </div>
           </section>
         );
