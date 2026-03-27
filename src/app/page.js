@@ -14,6 +14,8 @@ const PIECES = [
   { src: '/mockups/hawks-bucket-lookbook.png', cat: 'buckets' },
   { src: '/mockups/falcons-bucket-museum.png', cat: 'buckets' },
   { src: '/mockups/braves-bucket-lookbook.png', cat: 'buckets' },
+  { src: '/mockups/blue-mf-pitcher-tee.png', cat: 'tees' },
+  { src: '/mockups/hypnotic-nuvo-tee.png', cat: 'tees' },
   { src: '/mockups/mascot-boutique.png', cat: 'tees' },
   { src: '/mockups/axes-blue-lifestyle.png', cat: 'tees' },
   { src: '/mockups/truckers-bar-red.png', cat: 'truckers' },
@@ -64,11 +66,11 @@ const LOGOS = [
 
 const GALLERY = [
   { src: '/mockups/olive-chief-tee-lookbook.png', label: 'Chieftain Tee — Olive', cat: 'tees' },
-  { src: '/mockups/charcoal-braves-vest.png', label: 'Braves Script Vest', cat: 'vests' },
-  { src: '/mockups/olive-chief-tee-lookbook.png', label: 'Chieftain Tee — Olive', cat: 'tees' },
   { src: '/mockups/pink-axes-lookbook.png', label: 'Crossed Axes Tee — Pink', cat: 'tees' },
   { src: '/mockups/script-pink-tee.png', label: 'Script Tomahawk Tee', cat: 'tees' },
   { src: '/mockups/pink-shop-display.png', label: 'Pink Collection', cat: 'tees' },
+  { src: '/mockups/blue-mf-pitcher-tee.png', label: 'Blue MF Pitcher Tee', cat: 'tees' },
+  { src: '/mockups/hypnotic-nuvo-tee.png', label: 'Hypnotic & Nuvo Tee', cat: 'tees' },
   { src: '/mockups/charcoal-braves-vest.png', label: 'Braves Script Vest', cat: 'vests' },
   { src: '/mockups/charcoal-flag-vest.png', label: 'Patriot Flag Vest', cat: 'vests' },
   { src: '/mockups/charcoal-falcons-vest.png', label: 'Falcon Legacy Vest', cat: 'vests' },
@@ -84,12 +86,12 @@ const GALLERY = [
 ];
 
 const COLLECTIONS = [
-  { src: '/mockups/olive-chief-tee-lookbook.png', title: 'T-Shirts', count: '16', href: `${S}/collections/t-shirts` },
-  { src: '/mockups/snapbacks-boutique-red.png', title: 'Snapbacks', count: '20', href: `${S}/collections/snapbacks` },
-  { src: '/mockups/charcoal-falcons-vest.png', title: 'Vests', count: '11', href: `${S}/collections/vests` },
-  { src: '/mockups/trucker-hat-floating.png', title: 'Truckers', count: '10', href: `${S}/collections/trucker-hats` },
-  { src: '/mockups/hawks-bucket-lookbook.png', title: 'Bucket Hats', count: '6', href: `${S}/collections/bucket-hats` },
-  { src: '/mockups/design-grid-9up.png', title: 'All 64 Pieces', count: '64', href: `${S}/collections/all-products` },
+  { src: '/mockups/olive-chief-tee-lookbook.png', title: 'T-Shirts', href: `${S}/collections/t-shirts` },
+  { src: '/mockups/snapbacks-boutique-red.png', title: 'Snapbacks', href: `${S}/collections/snapbacks` },
+  { src: '/mockups/charcoal-falcons-vest.png', title: 'Vests', href: `${S}/collections/vests` },
+  { src: '/mockups/trucker-hat-floating.png', title: 'Truckers', href: `${S}/collections/trucker-hats` },
+  { src: '/mockups/hawks-bucket-lookbook.png', title: 'Bucket Hats', href: `${S}/collections/bucket-hats` },
+  { src: '/mockups/design-grid-9up.png', title: 'Shop All', href: `${S}/collections/all-products` },
 ];
 
 const CULTURE = [
@@ -120,7 +122,7 @@ export default function HomePage() {
         <div className="hero__content">
           <div className="hero__tag">2026 Collection</div>
           <h1 className="hero__title">Make Atlanta<br /><em>Great Again</em></h1>
-          <p className="hero__sub">64 pieces. For the ones who remember when the city had soul.</p>
+          <p className="hero__sub">For the ones who remember when the city had soul.</p>
           <div className="hero__actions">
             <a href="/shop" className="btn-primary">Shop the Collection</a>
             <a href="#pieces" className="btn-secondary">See the Pieces</a>
@@ -196,7 +198,6 @@ export default function HomePage() {
               <div className="collection-card__img-wrap"><img src={c.src} alt={c.title} loading="lazy" /></div>
               <div className="collection-card__info">
                 <span className="collection-card__title">{c.title}</span>
-                <span className="collection-card__count">{c.count}</span>
               </div>
             </a>
           ))}
@@ -229,15 +230,15 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CAMPAIGN */}
+      {/* CAMPAIGN — Blue MF Pitcher */}
       <section className="campaign">
         <div className="campaign__inner">
-          <div className="campaign__image"><img src="/merch/pitcher-tee.png" alt="Blue MF Pitcher" /></div>
+          <div className="campaign__image"><img src="/mockups/blue-mf-pitcher-tee.png" alt="Blue MF Pitcher Tee" /></div>
           <div className="campaign__content">
             <div className="campaign__tag">Campaign Drop</div>
             <h2 className="campaign__title">The Legendary<br /><em>Blue Pitcher</em></h2>
-            <p className="campaign__desc">Atlanta&rsquo;s golden era refreshment. Bankhead Bounce. Freaknik nights essential.</p>
-            <a href={`${S}/collections/all-products`} className="btn-primary">Shop Now</a>
+            <p className="campaign__desc">Atlanta&rsquo;s golden era refreshment. Bankhead Bounce. College Park Fuel. Freaknik nights essential.</p>
+            <a href={`${S}/collections/t-shirts`} className="btn-primary">Shop Shirts</a>
           </div>
         </div>
       </section>
