@@ -11,7 +11,12 @@ body{font-family:var(--sn);background:var(--o);color:var(--cr);-webkit-font-smoo
 body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:0.03;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:512px}
 a{color:inherit;text-decoration:none}img{max-width:100%;height:auto;display:block}
 
-.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 clamp(16px,3vw,48px);height:56px;display:flex;align-items:center;justify-content:space-between;background:transparent;transition:background 0.4s}
+/* ANNOUNCEMENT BAR */
+.announce{position:fixed;top:0;left:0;right:0;z-index:1001;height:32px;display:flex;align-items:center;justify-content:center;background:var(--r);overflow:hidden}
+.announce__track{display:inline-flex;animation:mq 25s linear infinite;white-space:nowrap}
+.announce__item{font-size:10px;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--cr);padding:0 48px}
+
+.nav{position:fixed;top:32px;left:0;right:0;z-index:1000;padding:0 clamp(16px,3vw,48px);height:56px;display:flex;align-items:center;justify-content:space-between;background:transparent;transition:background 0.4s}
 .nav.scrolled{background:rgba(10,10,10,0.96);backdrop-filter:blur(16px)}
 .nav__logo{font-size:10px;font-weight:700;letter-spacing:0.4em;text-transform:uppercase;color:var(--cr)}
 .nav__links{display:flex;gap:24px;list-style:none}
@@ -19,8 +24,8 @@ a{color:inherit;text-decoration:none}img{max-width:100%;height:auto;display:bloc
 .nav__link:hover{color:var(--g)}
 @media(max-width:768px){.nav__links{display:none}}
 
-/* HERO — 60vh, compact */
-.hero{position:relative;height:50vh;min-height:360px;display:flex;align-items:flex-end;overflow:hidden;padding:clamp(20px,4vw,60px);padding-bottom:clamp(32px,5vw,60px)}
+/* HERO — 60vh, compact, offset for announcement bar */
+.hero{position:relative;height:50vh;min-height:360px;display:flex;align-items:flex-end;overflow:hidden;padding:clamp(20px,4vw,60px);padding-top:88px;padding-bottom:clamp(32px,5vw,60px)}
 .hero__video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
 .hero__video-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(10,10,10,0.94) 0%,rgba(10,10,10,0.35) 40%,rgba(10,10,10,0.15) 65%,rgba(10,10,10,0.3) 100%)}
 .hero__crests{position:absolute;inset:0;overflow:hidden;z-index:1}

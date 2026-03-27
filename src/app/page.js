@@ -95,13 +95,13 @@ const COLLECTIONS = [
 ];
 
 const CULTURE = [
-  { src: '/culture/waffle-house.png', label: 'Late Night Legend', sub: 'Waffle House', tall: true },
-  { src: '/culture/marta.png', label: 'Old Atlanta Forever', sub: 'MARTA', wide: true },
-  { src: '/culture/cascade.png', label: 'City of Soul', sub: 'Cascade', tall: true },
-  { src: '/culture/south-side.png', label: 'Da South Side', sub: 'Young Hustler' },
-  { src: '/culture/atlien.png', label: 'Southern Playalistic', sub: 'ATLien' },
-  { src: '/culture/club-libra.png', label: 'Hood Icon', sub: 'Club Libra' },
-  { src: '/culture/lean-wit-it.png', label: 'Back When the City Had Soul', sub: 'Lean Wit It' },
+  { src: '/culture/waffle-house.png', label: 'LATE NIGHT ATLANTA', sub: 'Waffle House', tall: true },
+  { src: '/culture/marta.png', label: 'OLD ATLANTA ENERGY', sub: 'MARTA', wide: true },
+  { src: '/culture/cascade.png', label: 'CITY FULL OF FLAVOR', sub: 'Cascade', tall: true },
+  { src: '/culture/south-side.png', label: 'SOUTHSIDE MEMORIES', sub: 'Southside' },
+  { src: '/culture/atlien.png', label: 'REAL ATLANTA ONLY', sub: 'ATLien' },
+  { src: '/culture/club-libra.png', label: 'BACK WHEN IT WAS HITTIN', sub: 'Club Libra' },
+  { src: '/culture/lean-wit-it.png', label: 'WHEN THE CITY HAD SAUCE', sub: 'The City' },
 ];
 
 export default function HomePage() {
@@ -122,19 +122,22 @@ export default function HomePage() {
         <div className="hero__content">
           <div className="hero__tag">2026 Collection</div>
           <h1 className="hero__title">Make Atlanta<br /><em>Great Again</em></h1>
-          <p className="hero__sub">For the ones who remember when the city had soul.</p>
+          <p className="hero__sub">For the ones who remember when Atlanta really had motion.<br />Old clubs. Old days. Old logos. Real city energy. Put that sh*t on.</p>
           <div className="hero__actions">
-            <a href="/shop" className="btn-primary">Shop the Collection</a>
-            <a href="#pieces" className="btn-secondary">See the Pieces</a>
+            <a href="/shop" className="btn-primary">Shop the Drop</a>
+            <a href="#pieces" className="btn-secondary">Run It Up</a>
           </div>
         </div>
       </section>
 
-      {/* THE PIECES — INFINITE AUTO-SCROLL MARQUEE */}
+      {/* THE PIECES — SHOP THE DROP */}
       <section className="pieces" id="pieces">
         <div className="pieces__header">
-          <div className="showcase__tag">2026 Collection</div>
+          <div className="showcase__tag">Shop the Drop</div>
           <h2 className="showcase__title">The Pieces</h2>
+          <p style={{ color: 'var(--cr50)', fontSize: 'clamp(12px,1.1vw,14px)', maxWidth: 480, margin: '8px auto 0', textAlign: 'center', lineHeight: 1.8 }}>
+            Tees, hats, and pieces made for anybody still screaming old Atlanta over everything.
+          </p>
         </div>
         <div className="pieces__track-wrap">
           <div className="pieces__track">
@@ -158,11 +161,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* PICK YOUR PIECE — under logos, click routes to category */}
+      {/* WHAT YOU ON? — category section under logos */}
       <section className="editorial">
         <div className="editorial__header">
-          <div className="showcase__tag">Shirts &bull; Hats &bull; Vests &bull; Buckets</div>
+          <div className="showcase__tag">What You On?</div>
           <h2 className="showcase__title">Pick Your Piece</h2>
+          <p style={{ color: 'var(--cr50)', fontSize: 'clamp(12px,1.1vw,14px)', maxWidth: 420, margin: '8px auto 0', textAlign: 'center', lineHeight: 1.8 }}>
+            Rep your side. Wear the city right.
+          </p>
         </div>
         <div className="editorial__grid" style={{ gridTemplateColumns: 'repeat(4, 1fr)' }}>
           {GALLERY.map((c, i) => (
@@ -178,7 +184,7 @@ export default function HomePage() {
           ))}
         </div>
         <div style={{ textAlign: 'center', marginTop: 32, display: 'flex', gap: 10, justifyContent: 'center', flexWrap: 'wrap' }}>
-          <a href={`${S}/collections/t-shirts`} className="btn-secondary">Shop Shirts</a>
+          <a href={`${S}/collections/t-shirts`} className="btn-secondary">Shop Tees</a>
           <a href={`${S}/collections/snapbacks`} className="btn-secondary">Shop Snapbacks</a>
           <a href={`${S}/collections/trucker-hats`} className="btn-secondary">Shop Truckers</a>
           <a href={`${S}/collections/bucket-hats`} className="btn-secondary">Shop Buckets</a>
@@ -186,11 +192,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* COLLECTIONS */}
+      {/* STRAIGHT OUT THE CITY — Collections */}
       <section className="collections">
         <div className="collections__header">
-          <div className="collections__tag">Shop by Collection</div>
+          <div className="collections__tag">Straight Out the City</div>
           <h2 className="collections__title">Find Your Piece</h2>
+          <p style={{ color: 'var(--cr50)', fontSize: 'clamp(12px,1.1vw,14px)', maxWidth: 480, margin: '8px auto 0', textAlign: 'center', lineHeight: 1.8 }}>
+            Inspired by the places, faces, nights, and moments that had Atlanta in a chokehold.
+          </p>
         </div>
         <div className="collections__grid">
           {COLLECTIONS.map((c, i) => (
@@ -204,18 +213,20 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* MANIFESTO */}
+      {/* MID-PAGE STATEMENT */}
       <section className="manifesto">
         <p className="manifesto__text">
-          Atlanta was never just a city. It was a <strong>feeling</strong>. Before soul got replaced by sameness. <strong>This is for the ones who remember.</strong>
+          This ain&rsquo;t no regular Atlanta merch. This that <strong>&ldquo;you had to be there&rdquo;</strong> Atlanta.<br />
+          The city before everything got watered down. Before everybody claimed it. Before it got too clean.<br />
+          <strong>This for the ones who know what the city felt like for real.</strong>
         </p>
       </section>
 
-      {/* CULTURE */}
+      {/* YOU KNOW THE VIBE — Archive */}
       <section className="culture">
         <div className="culture__header">
-          <div className="culture__tag">The Archive</div>
-          <h2 className="culture__title">When the City Had Soul</h2>
+          <div className="culture__tag">You Know the Vibe</div>
+          <h2 className="culture__title">If You Know, You Know</h2>
         </div>
         <div className="culture__grid">
           {CULTURE.map((c, i) => (
@@ -230,15 +241,15 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CAMPAIGN — Blue MF Pitcher */}
+      {/* CITY CLASSIC — Campaign */}
       <section className="campaign">
         <div className="campaign__inner">
           <div className="campaign__image"><img src="/mockups/blue-mf-pitcher-tee.png" alt="Blue MF Pitcher Tee" /></div>
           <div className="campaign__content">
-            <div className="campaign__tag">Campaign Drop</div>
+            <div className="campaign__tag">City Classic</div>
             <h2 className="campaign__title">The Legendary<br /><em>Blue Pitcher</em></h2>
-            <p className="campaign__desc">Atlanta&rsquo;s golden era refreshment. Bankhead Bounce. College Park Fuel. Freaknik nights essential.</p>
-            <a href={`${S}/collections/t-shirts`} className="btn-primary">Shop Shirts</a>
+            <p className="campaign__desc">Some pieces don&rsquo;t need a long story. If you know what this mean to Atlanta, that&rsquo;s enough.</p>
+            <a href={`${S}/collections/t-shirts`} className="btn-primary">Cop Now</a>
           </div>
         </div>
       </section>
@@ -246,20 +257,20 @@ export default function HomePage() {
       {/* MARQUEE */}
       <section className="marquee">
         <div className="marquee__track">
-          {[...Array(8)].map((_, i) => (
-            <span key={i} className="marquee__item">WHEN ATLANTA WAS ATLANTA &bull;</span>
+          {[...Array(6)].map((_, i) => (
+            <span key={i} className="marquee__item">WHEN ATLANTA WAS ATLANTA &bull; FOR THE ONES WHO KNOW &bull; OLD ATLANTA OVER EVERYTHING &bull; REAL CITY ENERGY &bull;</span>
           ))}
         </div>
       </section>
 
-      {/* MOVEMENT */}
+      {/* TAP IN — Email capture */}
       <section className="movement" id="movement">
-        <div className="movement__tag">Join the Movement</div>
-        <h2 className="movement__title">First Access. Limited Releases.</h2>
-        <p className="movement__desc">Drops, activations, and stories from old Atlanta.</p>
+        <div className="movement__tag">Tap In</div>
+        <h2 className="movement__title">First Dibs. Exclusives. Drops.</h2>
+        <p className="movement__desc">Drops, exclusives, and first dibs before everybody else get there.</p>
         <div className="movement__form">
           <input type="email" className="movement__input" placeholder="Enter your email" />
-          <button className="movement__submit">Join</button>
+          <button className="movement__submit">Tap In</button>
         </div>
       </section>
     </>
