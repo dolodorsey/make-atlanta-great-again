@@ -3,46 +3,46 @@ const S = 'https://makeatlantagreatagain.myshopify.com';
 
 const PIECES = [
   { src: '/mockups/design-grid-9up.png', cat: 'all' },
-  { src: '/mockups/olive-chief-tee-lookbook.png', cat: 'tees' },
-  { src: '/mockups/pink-shop-display.png', cat: 'tees' },
   { src: '/mockups/trucker-hat-floating.png', cat: 'truckers' },
-  { src: '/mockups/pink-axes-lookbook.png', cat: 'tees' },
   { src: '/mockups/charcoal-flag-vest.png', cat: 'vests' },
-  { src: '/mockups/charcoal-falcons-vest.png', cat: 'vests' },
-  { src: '/mockups/bucket-hat-museum.png', cat: 'buckets' },
-  { src: '/mockups/charcoal-braves-vest.png', cat: 'vests' },
-  { src: '/mockups/hawks-bucket-lookbook.png', cat: 'buckets' },
-  { src: '/mockups/falcons-bucket-museum.png', cat: 'buckets' },
-  { src: '/mockups/braves-bucket-lookbook.png', cat: 'buckets' },
   { src: '/mockups/blue-mf-pitcher-tee.png', cat: 'tees' },
-  { src: '/mockups/hypnotic-nuvo-tee.png', cat: 'tees' },
-  { src: '/mockups/mascot-boutique.png', cat: 'tees' },
-  { src: '/mockups/axes-blue-lifestyle.png', cat: 'tees' },
-  { src: '/mockups/truckers-bar-red.png', cat: 'truckers' },
-  { src: '/mockups/falcon-green-store.png', cat: 'tees' },
-  { src: '/mockups/varsity-store-white.png', cat: 'tees' },
-  { src: '/mockups/mascot-green-lifestyle.png', cat: 'tees' },
-  { src: '/mockups/atl-store-display.png', cat: 'all' },
-  { src: '/mockups/snapbacks-peachtree.png', cat: 'snapbacks' },
-  { src: '/mockups/truckers-models.png', cat: 'truckers' },
-  { src: '/mockups/script-pink-tee.png', cat: 'tees' },
-  { src: '/mockups/chieftain-cream-tee.png', cat: 'tees' },
-  { src: '/mockups/patriot-vest-set.png', cat: 'vests' },
-  { src: '/mockups/axes-pink-tee.png', cat: 'tees' },
-  { src: '/mockups/axes-trucker-red.png', cat: 'truckers' },
-  { src: '/mockups/braves-blue-tee.png', cat: 'tees' },
-  { src: '/mockups/braves-white-tee.png', cat: 'tees' },
-  { src: '/mockups/falcon-cream-tee.png', cat: 'tees' },
-  { src: '/mockups/falcon-green-tee.png', cat: 'tees' },
-  { src: '/mockups/falcon-truckers-black.png', cat: 'truckers' },
+  { src: '/mockups/hawks-bucket-lookbook.png', cat: 'buckets' },
   { src: '/mockups/mascot-snapback-float.png', cat: 'snapbacks' },
-  { src: '/mockups/mascot-snapback.png', cat: 'snapbacks' },
-  { src: '/mockups/mascot-stadium-tee.png', cat: 'tees' },
+  { src: '/mockups/pink-axes-lookbook.png', cat: 'tees' },
+  { src: '/mockups/charcoal-braves-vest.png', cat: 'vests' },
+  { src: '/mockups/axes-trucker-red.png', cat: 'truckers' },
+  { src: '/mockups/falcons-bucket-museum.png', cat: 'buckets' },
+  { src: '/mockups/olive-chief-tee-lookbook.png', cat: 'tees' },
+  { src: '/mockups/snapbacks-peachtree.png', cat: 'snapbacks' },
+  { src: '/mockups/charcoal-falcons-vest.png', cat: 'vests' },
+  { src: '/mockups/braves-bucket-lookbook.png', cat: 'buckets' },
+  { src: '/mockups/hypnotic-nuvo-tee.png', cat: 'tees' },
+  { src: '/mockups/falcon-truckers-black.png', cat: 'truckers' },
   { src: '/mockups/mascot-vest.png', cat: 'vests' },
-  { src: '/mockups/script-trucker-collector.png', cat: 'truckers' },
-  { src: '/mockups/script-trucker-float.png', cat: 'truckers' },
+  { src: '/mockups/script-pink-tee.png', cat: 'tees' },
+  { src: '/mockups/bucket-hat-museum.png', cat: 'buckets' },
+  { src: '/mockups/truckers-bar-red.png', cat: 'truckers' },
+  { src: '/mockups/mascot-boutique.png', cat: 'tees' },
   { src: '/mockups/snapbacks-bar-blue.png', cat: 'snapbacks' },
+  { src: '/mockups/patriot-vest-set.png', cat: 'vests' },
+  { src: '/mockups/falcon-green-store.png', cat: 'tees' },
+  { src: '/mockups/script-trucker-collector.png', cat: 'truckers' },
+  { src: '/mockups/atl-store-display.png', cat: 'all' },
+  { src: '/mockups/chieftain-cream-tee.png', cat: 'tees' },
   { src: '/mockups/snapbacks-boutique-red.png', cat: 'snapbacks' },
+  { src: '/mockups/axes-blue-lifestyle.png', cat: 'tees' },
+  { src: '/mockups/script-trucker-float.png', cat: 'truckers' },
+  { src: '/mockups/braves-blue-tee.png', cat: 'tees' },
+  { src: '/mockups/mascot-snapback.png', cat: 'snapbacks' },
+  { src: '/mockups/falcon-cream-tee.png', cat: 'tees' },
+  { src: '/mockups/truckers-models.png', cat: 'truckers' },
+  { src: '/mockups/varsity-store-white.png', cat: 'tees' },
+  { src: '/mockups/pink-shop-display.png', cat: 'tees' },
+  { src: '/mockups/mascot-green-lifestyle.png', cat: 'tees' },
+  { src: '/mockups/falcon-green-tee.png', cat: 'tees' },
+  { src: '/mockups/mascot-stadium-tee.png', cat: 'tees' },
+  { src: '/mockups/axes-pink-tee.png', cat: 'tees' },
+  { src: '/mockups/braves-white-tee.png', cat: 'tees' },
   { src: '/mockups/white-tees-grid.png', cat: 'tees' },
 ];
 
@@ -56,12 +56,14 @@ const CAT_LINKS = {
 };
 
 const LOGOS = [
-  '/brand/MAGA_brave_gold.png','/brand/MAGA_atlanta_braves.png',
-  '/brand/MAGA_hawks.png','/brand/MAGA_falcon.png',
-  '/brand/MAGA_thrasher.png','/brand/MAGA_thrashers.png',
-  '/brand/MAGA_brave.png','/brand/MAGA_braves.png',
-  '/brand/peachtree-script.png','/brand/peachtree-skyline.png',
-  '/brand/braves-script-white.png','/brand/FLAG.png',
+  '/brand/MAGA_brave_gold.png',
+  '/brand/MAGA_atlanta_braves.png',
+  '/brand/MAGA_hawks.png',
+  '/brand/MAGA_falcon.png',
+  '/brand/MAGA_thrasher.png',
+  '/brand/peachtree-script.png',
+  '/brand/peachtree-skyline.png',
+  '/brand/FLAG.png',
 ];
 
 const GALLERY = [
@@ -129,7 +131,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* THE PIECES — SHOP THE DROP */}
+      {/* THE PIECES */}
       <section className="pieces" id="pieces">
         <div className="pieces__header">
           <div className="showcase__tag">Shop the Drop</div>
@@ -149,18 +151,46 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* LOGOS */}
+      {/* LOGOS — bigger, no dupes */}
       <section className="logos">
-        <div className="logos__grid">
+        <div className="logos__grid" style={{ gap: 'clamp(24px,4vw,48px)' }}>
           {LOGOS.map((src, i) => (
-            <a key={i} href={`${S}/collections/all-products`} className="logos__item">
+            <a key={i} href={`${S}/collections/all-products`} className="logos__item" style={{ maxWidth: 'clamp(80px,12vw,140px)' }}>
               <img src={src} alt="" loading="lazy" />
             </a>
           ))}
         </div>
       </section>
 
-      {/* WHAT YOU ON? — category section under logos */}
+      {/* IF YOU KNOW, YOU KNOW — moved ABOVE Pick Your Piece */}
+      <section className="culture">
+        <div className="culture__header">
+          <div className="culture__tag">You Know the Vibe</div>
+          <h2 className="culture__title">If You Know, You Know</h2>
+        </div>
+        <div className="culture__grid">
+          {CULTURE.map((c, i) => (
+            <div key={i} className="culture__card">
+              <img src={c.src} alt={c.label} loading="lazy" />
+              <div className="culture__card__overlay">
+                <div className="culture__card__label">{c.label}</div>
+                <div className="culture__card__sub">{c.sub}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* MANIFESTO */}
+      <section className="manifesto">
+        <p className="manifesto__text">
+          This ain&rsquo;t no regular Atlanta merch. This that <strong>&ldquo;you had to be there&rdquo;</strong> Atlanta.<br />
+          The city before everything got watered down. Before everybody claimed it. Before it got too clean.<br />
+          <strong>This for the ones who know what the city felt like for real.</strong>
+        </p>
+      </section>
+
+      {/* PICK YOUR PIECE */}
       <section className="editorial">
         <div className="editorial__header">
           <div className="showcase__tag">What You On?</div>
@@ -191,7 +221,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* STRAIGHT OUT THE CITY — Collections */}
+      {/* COLLECTIONS */}
       <section className="collections">
         <div className="collections__header">
           <div className="collections__tag">Straight Out the City</div>
@@ -212,35 +242,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* MID-PAGE STATEMENT */}
-      <section className="manifesto">
-        <p className="manifesto__text">
-          This ain&rsquo;t no regular Atlanta merch. This that <strong>&ldquo;you had to be there&rdquo;</strong> Atlanta.<br />
-          The city before everything got watered down. Before everybody claimed it. Before it got too clean.<br />
-          <strong>This for the ones who know what the city felt like for real.</strong>
-        </p>
-      </section>
-
-      {/* YOU KNOW THE VIBE — Archive */}
-      <section className="culture">
-        <div className="culture__header">
-          <div className="culture__tag">You Know the Vibe</div>
-          <h2 className="culture__title">If You Know, You Know</h2>
-        </div>
-        <div className="culture__grid">
-          {CULTURE.map((c, i) => (
-            <div key={i} className="culture__card">
-              <img src={c.src} alt={c.label} loading="lazy" />
-              <div className="culture__card__overlay">
-                <div className="culture__card__label">{c.label}</div>
-                <div className="culture__card__sub">{c.sub}</div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* CITY CLASSIC — Campaign */}
+      {/* CAMPAIGN */}
       <section className="campaign">
         <div className="campaign__inner">
           <div className="campaign__image"><img src="/mockups/blue-mf-pitcher-tee.png" alt="Blue MF Pitcher Tee" /></div>
@@ -262,7 +264,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* TAP IN — Email capture */}
+      {/* TAP IN */}
       <section className="movement" id="movement">
         <div className="movement__tag">Tap In</div>
         <h2 className="movement__title">First Dibs. Exclusives. Drops.</h2>

@@ -16,6 +16,7 @@ export const metadata = {
 const SHOPIFY = 'https://makeatlantagreatagain.myshopify.com';
 
 const NAV = [
+  { label: 'Home', href: '/' },
   { label: 'Shop All', href: '/shop' },
   { label: 'Tees', href: `${SHOPIFY}/collections/t-shirts` },
   { label: 'Hats', href: `${SHOPIFY}/collections/snapbacks` },
