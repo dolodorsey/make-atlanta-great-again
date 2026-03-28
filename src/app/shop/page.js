@@ -12,6 +12,7 @@ const CATEGORIES = [
   { key: 'Bucket Hat', label: 'Bucket Hats', id: 'buckets' },
   { key: 'Pants', label: 'Pants', id: 'pants' },
   { key: 'Swim Trunks', label: 'Swim Trunks', id: 'swim-trunks' },
+  { key: 'Swimsuit', label: 'Swimsuits', id: 'swimsuits' },
 ];
 
 // Product types where we should HIDE manufacturer color variants
@@ -21,6 +22,7 @@ const SINGLE_COLOR_TYPES = [
   'Trucker Hat', 
   'Bucket Hat',
   'Swim Trunks',
+  'Swimsuit',
 ];
 
 export default async function ShopPage() {
@@ -66,7 +68,7 @@ export default async function ShopPage() {
           <section key={cat.id} id={cat.id} className="shop">
             <div className="shop__header">
               <h2 className="shop__title">{cat.label} &mdash; {items.length}</h2>
-              <a href={`${S}/collections/${cat.id === 'tees' ? 't-shirts' : cat.id === 'truckers' ? 'trucker-hats' : cat.id === 'buckets' ? 'bucket-hats' : cat.id}`} className="shop__link">
+              <a href={`${S}/collections/${cat.id === 'tees' ? 't-shirts' : cat.id === 'truckers' ? 'trucker-hats' : cat.id === 'buckets' ? 'bucket-hats' : cat.id === 'swim-trunks' || cat.id === 'swimsuits' ? 'swimwear' : cat.id}`} className="shop__link">
                 View on Shopify &rarr;
               </a>
             </div>

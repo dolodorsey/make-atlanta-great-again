@@ -67,8 +67,20 @@ const CAT_LINKS = {
   snapbacks: `${S}/collections/snapbacks`,
   truckers: `${S}/collections/trucker-hats`,
   buckets: `${S}/collections/bucket-hats`,
-  shorts: `${S}/collections/swim-trunks`,
+  shorts: `${S}/collections/swimwear`,
+  swimwear: `${S}/collections/swimwear`,
 };
+
+const SWIMWEAR = [
+  { src: 'https://cdn.shopify.com/s/files/1/0787/5690/5210/files/250060-359498fe-df2f-407b-b695-4bd86f72907f.jpg', title: 'The Poolside — ATL One-Piece I', type: 'one-piece' },
+  { src: 'https://cdn.shopify.com/s/files/1/0787/5690/5210/files/250060-fbc4ef40-0764-4621-949c-53206ed9e76a_78c10eca-b51d-4e70-9c9d-e7839a9215b1.jpg', title: 'The Poolside — ATL One-Piece II', type: 'one-piece' },
+  { src: 'https://cdn.shopify.com/s/files/1/0787/5690/5210/files/250060-5d430a8b-04e8-401a-b20d-d2230b53eb76_982f1192-0b00-4a4d-82fe-7d7d0c5e0db2.jpg', title: 'The Poolside — ATL One-Piece III', type: 'one-piece' },
+  { src: 'https://cdn.shopify.com/s/files/1/0787/5690/5210/files/250060-36b48571-0b33-4676-b5be-207cba8fbeff.jpg', title: 'The Poolside — ATL One-Piece IV', type: 'one-piece' },
+  { src: '/mockups/shorts-axes-navy-boutique.png', title: 'Crossed Axes Swim — Navy', type: 'trunks' },
+  { src: '/mockups/shorts-script-black-1.png', title: 'Script Swim — Black', type: 'trunks' },
+  { src: '/mockups/shorts-falcon-white-1.png', title: 'Falcon Swim — White', type: 'trunks' },
+  { src: '/mockups/shorts-axes-red.png', title: 'Crossed Axes Swim — Red', type: 'trunks' },
+];
 
 const LOGOS = [
   '/brand/MAGA_brave_gold.png',
@@ -102,7 +114,7 @@ const GALLERY = [
 
 const COLLECTIONS = [
   { src: '/mockups/olive-chief-tee-lookbook.png', title: 'T-Shirts', href: `${S}/collections/t-shirts` },
-  { src: '/mockups/shorts-axes-navy-boutique.png', title: 'Swim Trunks', href: `${S}/collections/swim-trunks` },
+  { src: '/mockups/shorts-axes-navy-boutique.png', title: 'Swimwear', href: `${S}/collections/swimwear` },
   { src: '/mockups/snapbacks-boutique-red.png', title: 'Snapbacks', href: `${S}/collections/snapbacks` },
   { src: '/mockups/charcoal-falcons-vest.png', title: 'Vests', href: `${S}/collections/vests` },
   { src: '/mockups/trucker-hat-floating.png', title: 'Truckers', href: `${S}/collections/trucker-hats` },
@@ -240,7 +252,7 @@ export default function HomePage() {
               <div className="editorial__card-label">
                 {c.label}
                 <span style={{ color: 'var(--gm)', marginLeft: 8, fontSize: 8, letterSpacing: '0.12em', textTransform: 'uppercase' }}>
-                  {c.cat === 'tees' ? 'SHIRT' : c.cat === 'vests' ? 'VEST' : c.cat === 'shorts' ? 'SHORTS' : 'HAT'}
+                  {c.cat === 'tees' ? 'SHIRT' : c.cat === 'vests' ? 'VEST' : c.cat === 'shorts' ? 'SWIM' : c.cat === 'swimwear' ? 'SWIM' : 'HAT'}
                 </span>
               </div>
             </a>
@@ -252,7 +264,7 @@ export default function HomePage() {
           <a href={`${S}/collections/trucker-hats`} className="btn-secondary">Shop Truckers</a>
           <a href={`${S}/collections/bucket-hats`} className="btn-secondary">Shop Buckets</a>
           <a href={`${S}/collections/vests`} className="btn-secondary">Shop Vests</a>
-          <a href={`${S}/collections/swim-trunks`} className="btn-secondary">Shop Swim Trunks</a>
+          <a href={`${S}/collections/swimwear`} className="btn-secondary">Shop Swimwear</a>
         </div>
       </section>
 
@@ -266,6 +278,34 @@ export default function HomePage() {
             <p className="campaign__desc">Some pieces don&rsquo;t need a long story. If you know what this mean to Atlanta, that&rsquo;s enough.</p>
             <a href={`${S}/collections/t-shirts`} className="btn-primary">Cop Now</a>
           </div>
+        </div>
+      </section>
+
+      {/* SWIMWEAR DROP */}
+      <section className="swimwear-drop" id="swimwear">
+        <div className="swimwear-drop__header">
+          <div className="showcase__tag">Now Live</div>
+          <h2 className="showcase__title">The Poolside Collection</h2>
+          <p style={{ color: 'var(--cr50)', fontSize: 'clamp(12px,1.1vw,14px)', maxWidth: 520, margin: '8px auto 0', textAlign: 'center', lineHeight: 1.8 }}>
+            Swim trunks and one-piece swimsuits. Summer-ready, Atlanta-made. For the pool, the beach, and wherever else you need to show up correct.
+          </p>
+        </div>
+        <div className="swimwear-drop__grid">
+          {SWIMWEAR.map((s, i) => (
+            <a key={i} href={`${S}/collections/swimwear`} className="swimwear-drop__card">
+              <div className="swimwear-drop__img-wrap">
+                <img src={s.src} alt={s.title} loading="lazy" />
+                <div className="swimwear-drop__badge">{s.type === 'one-piece' ? 'NEW' : 'TRUNKS'}</div>
+              </div>
+              <div className="swimwear-drop__info">
+                <span className="swimwear-drop__name">{s.title}</span>
+                <span className="swimwear-drop__type">{s.type === 'one-piece' ? 'One-Piece Swimsuit' : 'Swim Trunks'}</span>
+              </div>
+            </a>
+          ))}
+        </div>
+        <div style={{ textAlign: 'center', marginTop: 32 }}>
+          <a href={`${S}/collections/swimwear`} className="btn-primary">Shop All Swimwear</a>
         </div>
       </section>
 

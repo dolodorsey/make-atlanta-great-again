@@ -9,7 +9,7 @@ const NAV_LINKS = [
   { label: 'Truckers', href: '/collections/trucker-hats' },
   { label: 'Bucket Hats', href: '/collections/bucket-hats' },
   { label: 'Vests', href: '/collections/vests' },
-  { label: 'Swim Trunks', href: '/collections/swim-trunks' },
+  { label: 'Swimwear', href: '/collections/swimwear' },
 ];
 
 export default function MobileMenu() {
