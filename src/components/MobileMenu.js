@@ -5,8 +5,7 @@ const SHOPIFY = 'https://makeatlantagreatagain.myshopify.com';
 const NAV_LINKS = [
   { label: 'Shop All', href: '/shop', internal: true },
   { label: 'T-Shirts', href: '/collections/t-shirts' },
-  { label: 'Snapbacks', href: '/collections/snapbacks' },
-  { label: 'Truckers', href: '/collections/trucker-hats' },
+  { label: 'Hats', href: '/collections/hats' },
   { label: 'Bucket Hats', href: '/collections/bucket-hats' },
   { label: 'Vests', href: '/collections/vests' },
   { label: 'Swimwear', href: '/collections/swimwear' },

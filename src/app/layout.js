@@ -19,8 +19,7 @@ const NAV = [
   { label: 'Home', href: '/' },
   { label: 'Shop All', href: '/shop' },
   { label: 'Tees', href: `${SHOPIFY}/collections/t-shirts` },
-  { label: 'Snapbacks', href: `${SHOPIFY}/collections/snapbacks` },
-  { label: 'Truckers', href: `${SHOPIFY}/collections/trucker-hats` },
+  { label: 'Hats', href: `${SHOPIFY}/collections/hats` },
   { label: 'Buckets', href: `${SHOPIFY}/collections/bucket-hats` },
   { label: 'Vests', href: `${SHOPIFY}/collections/vests` },
   { label: 'Swimwear', href: `${SHOPIFY}/collections/swimwear` },
@@ -62,8 +61,7 @@ export default function RootLayout({ children }) {
             <div>
               <div className="footer__heading">Shop</div>
               <a href={`${SHOPIFY}/collections/t-shirts`} className="footer__link">Tees</a>
-              <a href={`${SHOPIFY}/collections/snapbacks`} className="footer__link">Snapbacks</a>
-              <a href={`${SHOPIFY}/collections/trucker-hats`} className="footer__link">Truckers</a>
+              <a href={`${SHOPIFY}/collections/hats`} className="footer__link">Hats</a>
               <a href={`${SHOPIFY}/collections/bucket-hats`} className="footer__link">Buckets</a>
               <a href={`${SHOPIFY}/collections/vests`} className="footer__link">Vests</a>
               <a href={`${SHOPIFY}/collections/swimwear`} className="footer__link">Swimwear</a>

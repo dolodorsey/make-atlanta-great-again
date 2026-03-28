@@ -5,10 +5,9 @@ export const dynamic = 'force-dynamic';
 const S = 'https://makeatlantagreatagain.myshopify.com';
 
 const CATEGORIES = [
-  { key: 'Snapback Cap', label: 'Snapbacks', id: 'snapbacks' },
+  { key: 'Snapback Cap,Trucker Hat', label: 'Hats', id: 'hats', multi: true },
   { key: 'T-Shirt', label: 'T-Shirts', id: 'tees' },
   { key: 'Vest', label: 'Vests', id: 'vests' },
-  { key: 'Trucker Hat', label: 'Trucker Hats', id: 'truckers' },
   { key: 'Bucket Hat', label: 'Bucket Hats', id: 'buckets' },
   { key: 'Pants', label: 'Pants', id: 'pants' },
   { key: 'Swim Trunks', label: 'Swim Trunks', id: 'swim-trunks' },
@@ -40,7 +39,9 @@ export default async function ShopPage() {
       <nav className="shop-nav">
         <div className="shop-nav__inner">
           {CATEGORIES.map(cat => {
-            const count = (byType[cat.key] || []).length;
+            const count = cat.multi
+              ? cat.key.split(',').reduce((sum, k) => sum + (byType[k.trim()] || []).length, 0)
+              : (byType[cat.key] || []).length;
             if (count === 0) return null;
             return (
               <a key={cat.id} href={`#${cat.id}`} className="shop-nav__link">
@@ -56,11 +57,15 @@ export default async function ShopPage() {
 
       {/* ALL PRODUCT SECTIONS — no banner, straight to products */}
       {CATEGORIES.map(cat => {
-        const items = byType[cat.key] || [];
+        const items = cat.multi
+          ? cat.key.split(',').flatMap(k => byType[k.trim()] || [])
+          : (byType[cat.key] || []);
         if (items.length === 0) return null;
 
         // Determine if this category should hide manufacturer colors
-        const isSingleColorType = SINGLE_COLOR_TYPES.includes(cat.key);
+        const isSingleColorType = cat.multi
+          ? cat.key.split(',').some(k => SINGLE_COLOR_TYPES.includes(k.trim()))
+          : SINGLE_COLOR_TYPES.includes(cat.key);
         // T-Shirts with Black + other colors: only show Black
         const isShirt = cat.key === 'T-Shirt';
 
@@ -68,7 +73,7 @@ export default async function ShopPage() {
           <section key={cat.id} id={cat.id} className="shop">
             <div className="shop__header">
               <h2 className="shop__title">{cat.label} &mdash; {items.length}</h2>
-              <a href={`${S}/collections/${cat.id === 'tees' ? 't-shirts' : cat.id === 'truckers' ? 'trucker-hats' : cat.id === 'buckets' ? 'bucket-hats' : cat.id === 'swim-trunks' || cat.id === 'swimsuits' ? 'swimwear' : cat.id}`} className="shop__link">
+              <a href={`${S}/collections/${cat.id === 'tees' ? 't-shirts' : cat.id === 'buckets' ? 'bucket-hats' : cat.id === 'swim-trunks' || cat.id === 'swimsuits' ? 'swimwear' : cat.id}`} className="shop__link">
                 View on Shopify &rarr;
               </a>
             </div>
