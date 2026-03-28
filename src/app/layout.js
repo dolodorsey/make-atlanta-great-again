@@ -1,5 +1,6 @@
 import './globals.css';
 import MobileMenu from '@/components/MobileMenu';
+import PasswordGate from '@/components/PasswordGate';
 
 export const metadata = {
   title: 'MAKE ATLANTA GREAT AGAIN — Old Atlanta Over Everything',
@@ -31,11 +32,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
+        <PasswordGate>
         {/* ANNOUNCEMENT BAR */}
         <div className="announce">
           <div className="announce__track">
             {[...Array(6)].map((_, i) => (
-              <span key={i} className="announce__item">FOR THE ONES WHO KNOW. &bull;</span>
+              <span key={i} className="announce__item">EARLY ACCESS — USE CODE "FAMILY" FOR 50% OFF EVERYTHING &bull;</span>
             ))}
           </div>
         </div>
@@ -88,6 +90,7 @@ export default function RootLayout({ children }) {
             <span>A Kollective Hospitality Group brand</span>
           </div>
         </footer>
+        </PasswordGate>
       </body>
     </html>
   );
