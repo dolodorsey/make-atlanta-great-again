@@ -147,10 +147,28 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* COLLECTIONS — RIGHT AFTER HERO */}
+      <section className="collections" id="shop">
+        <div className="collections__header">
+          <div className="collections__tag">Pick Your Category</div>
+          <h2 className="collections__title">Shop by Type</h2>
+        </div>
+        <div className="collections__grid">
+          {COLLECTIONS.map((c, i) => (
+            <a key={i} href={c.href} className="collection-card">
+              <div className="collection-card__img-wrap"><img src={c.src} alt={c.title} loading="lazy" /></div>
+              <div className="collection-card__info">
+                <span className="collection-card__title">{c.title}</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+
       {/* THE PIECES */}
       <section className="pieces" id="pieces">
         <div className="pieces__header">
-          <div className="showcase__tag">Shop the Drop</div>
+          <div className="showcase__tag">The Full Lineup</div>
           <h2 className="showcase__title">The Pieces</h2>
           <p style={{ color: 'var(--cr50)', fontSize: 'clamp(12px,1.1vw,14px)', maxWidth: 480, margin: '8px auto 0', textAlign: 'center', lineHeight: 1.8 }}>
             Tees, hats, and pieces made for anybody still screaming old Atlanta over everything.
@@ -167,7 +185,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* LOGOS — bigger, no dupes */}
+      {/* LOGOS */}
       <section className="logos">
         <div className="logos__grid" style={{ gap: 'clamp(24px,4vw,48px)' }}>
           {LOGOS.map((src, i) => (
@@ -178,7 +196,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* IF YOU KNOW, YOU KNOW — moved ABOVE Pick Your Piece */}
+      {/* IF YOU KNOW, YOU KNOW */}
       <section className="culture">
         <div className="culture__header">
           <div className="culture__tag">You Know the Vibe</div>
@@ -235,27 +253,6 @@ export default function HomePage() {
           <a href={`${S}/collections/bucket-hats`} className="btn-secondary">Shop Buckets</a>
           <a href={`${S}/collections/vests`} className="btn-secondary">Shop Vests</a>
           <a href={`${S}/collections/swim-trunks`} className="btn-secondary">Shop Swim Trunks</a>
-        </div>
-      </section>
-
-      {/* COLLECTIONS */}
-      <section className="collections">
-        <div className="collections__header">
-          <div className="collections__tag">Straight Out the City</div>
-          <h2 className="collections__title">Find Your Piece</h2>
-          <p style={{ color: 'var(--cr50)', fontSize: 'clamp(12px,1.1vw,14px)', maxWidth: 480, margin: '8px auto 0', textAlign: 'center', lineHeight: 1.8 }}>
-            Inspired by the places, faces, nights, and moments that had Atlanta in a chokehold.
-          </p>
-        </div>
-        <div className="collections__grid">
-          {COLLECTIONS.map((c, i) => (
-            <a key={i} href={c.href} className="collection-card">
-              <div className="collection-card__img-wrap"><img src={c.src} alt={c.title} loading="lazy" /></div>
-              <div className="collection-card__info">
-                <span className="collection-card__title">{c.title}</span>
-              </div>
-            </a>
-          ))}
         </div>
       </section>
 

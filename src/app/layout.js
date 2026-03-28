@@ -19,7 +19,6 @@ const NAV = [
   { label: 'Home', href: '/' },
   { label: 'Shop All', href: '/shop' },
   { label: 'Tees', href: `${SHOPIFY}/collections/t-shirts` },
-  { label: 'Hats', href: `${SHOPIFY}/collections/snapbacks` },
   { label: 'Snapbacks', href: `${SHOPIFY}/collections/snapbacks` },
   { label: 'Truckers', href: `${SHOPIFY}/collections/trucker-hats` },
   { label: 'Buckets', href: `${SHOPIFY}/collections/bucket-hats` },
@@ -35,8 +34,8 @@ export default function RootLayout({ children }) {
         {/* ANNOUNCEMENT BAR */}
         <div className="announce">
           <div className="announce__track">
-            {[...Array(6)].map((_, i) => (
-              <span key={i} className="announce__item">EARLY ACCESS — USE CODE "FAMILY" FOR 50% OFF EVERYTHING &bull;</span>
+            {[...Array(4)].map((_, i) => (
+              <span key={i} className="announce__item">OLD ATLANTA OVER EVERYTHING &bull; BANKHEAD &bull; CASCADE &bull; COLLEGE PARK &bull; EAST ATLANTA &bull; DECATUR &bull; ZONE 6 &bull; CAMP CREEK &bull; VINE CITY &bull; WESTSIDE &bull; SOUTHSIDE &bull;</span>
             ))}
           </div>
         </div>

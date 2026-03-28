@@ -14,6 +14,15 @@ const CATEGORIES = [
   { key: 'Swim Trunks', label: 'Swim Trunks', id: 'swim-trunks' },
 ];
 
+// Product types where we should HIDE manufacturer color variants
+// Only show the actual product color (usually the first/primary one)
+const SINGLE_COLOR_TYPES = [
+  'Snapback Cap',
+  'Trucker Hat', 
+  'Bucket Hat',
+  'Swim Trunks',
+];
+
 export default async function ShopPage() {
   const products = await getProducts();
   const byType = {};
@@ -24,11 +33,35 @@ export default async function ShopPage() {
   });
 
   return (
-    <>
-      {/* All categories with anchor IDs */}
+    <div style={{ paddingTop: 88 }}>
+      {/* STICKY CATEGORY NAV */}
+      <nav className="shop-nav">
+        <div className="shop-nav__inner">
+          {CATEGORIES.map(cat => {
+            const count = (byType[cat.key] || []).length;
+            if (count === 0) return null;
+            return (
+              <a key={cat.id} href={`#${cat.id}`} className="shop-nav__link">
+                {cat.label} <span className="shop-nav__count">&nbsp;({count})</span>
+              </a>
+            );
+          })}
+          <a href={`${S}/collections/all-products`} className="shop-nav__link shop-nav__link--shopify">
+            Shopify Store &rarr;
+          </a>
+        </div>
+      </nav>
+
+      {/* ALL PRODUCT SECTIONS — no banner, straight to products */}
       {CATEGORIES.map(cat => {
         const items = byType[cat.key] || [];
         if (items.length === 0) return null;
+
+        // Determine if this category should hide manufacturer colors
+        const isSingleColorType = SINGLE_COLOR_TYPES.includes(cat.key);
+        // T-Shirts with Black + other colors: only show Black
+        const isShirt = cat.key === 'T-Shirt';
+
         return (
           <section key={cat.id} id={cat.id} className="shop">
             <div className="shop__header">
@@ -39,21 +72,30 @@ export default async function ShopPage() {
             </div>
             <div className="dgrid">
               {items.map(p => {
-                // For T-Shirts with multiple colors including Black, only show Black
-                const isShirt = cat.key === 'T-Shirt';
                 const colorOpt = p.options?.find(o => o.name.toLowerCase() === 'color');
                 const colors = colorOpt?.values || [];
                 const hasBlack = colors.some(c => c.toLowerCase() === 'black');
                 const isMultiColor = colors.length > 1;
-                const showBlackOnly = isShirt && hasBlack && isMultiColor;
+
+                // For hats/shorts: always show single color (hide manufacturer variants)
+                const singleColorOnly = isSingleColorType;
+                // For shirts: if has black + others, show black only
+                const blackOnly = isShirt && hasBlack && isMultiColor;
+
                 return (
-                  <ColorCycleCard key={p.id} product={p} storeUrl={S} blackOnly={showBlackOnly} />
+                  <ColorCycleCard 
+                    key={p.id} 
+                    product={p} 
+                    storeUrl={S} 
+                    blackOnly={blackOnly}
+                    singleColorOnly={singleColorOnly}
+                  />
                 );
               })}
             </div>
           </section>
         );
       })}
-    </>
+    </div>
   );
 }

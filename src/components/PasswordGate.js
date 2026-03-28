@@ -125,10 +125,10 @@ export default function PasswordGate({ children }) {
             YOU'RE IN
           </div>
           <div style={{ fontSize: 14, color: "#C9A84C", marginBottom: 4, fontFamily: "system-ui, sans-serif", fontWeight: 700, letterSpacing: 2 }}>
-            EARLY ACCESS — 50% OFF EVERYTHING
+            EARLY ACCESS — WELCOME TO THE MOVEMENT
           </div>
           <div style={{ fontSize: 13, color: "#888", marginBottom: 32, fontFamily: "system-ui, sans-serif" }}>
-            Use code <span style={{ color: "#C9A84C", fontWeight: 800, letterSpacing: 3 }}>FAMILY</span> at checkout.
+            You got access.
             <br />Drop your info below to get exclusive drops & restocks first.
           </div>
 

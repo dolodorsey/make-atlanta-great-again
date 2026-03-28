@@ -34,7 +34,14 @@ function getSwatchColor(colorName) {
   return COLOR_MAP[colorName] || '#555';
 }
 
-export default function ColorCycleCard({ product, storeUrl, blackOnly = false }) {
+// Force high-res images from Shopify CDN
+function hiRes(src) {
+  if (!src) return src;
+  // Remove any existing size params and request 1024px wide
+  return src.replace(/(\?|&)width=\d+/g, '').replace(/\.(jpg|jpeg|png|webp)/i, '_1024x.$1');
+}
+
+export default function ColorCycleCard({ product, storeUrl, blackOnly = false, singleColorOnly = false }) {
   const { title, handle, variants, images, options } = product;
   const firstImage = images?.[0]?.src;
   const firstVariantId = variants?.[0]?.id;
@@ -51,17 +58,17 @@ export default function ColorCycleCard({ product, storeUrl, blackOnly = false })
   images?.forEach(img => { imageMap[img.id] = img.src; });
 
   const colorImages = [];
-  const colorVariantIds = {};
   const seenColors = new Set();
 
   variants?.forEach(v => {
     const color = v[`option${colorPos}`];
     if (color && !seenColors.has(color) && v.image_id && imageMap[v.image_id]) {
-      // If blackOnly, skip non-black colors
+      // singleColorOnly: only show the first/primary color (skip manufacturer variants)
+      if (singleColorOnly && seenColors.size >= 1) return;
+      // blackOnly: skip non-black colors
       if (blackOnly && color.toLowerCase() !== 'black') return;
       seenColors.add(color);
       colorImages.push({ color, src: imageMap[v.image_id], variantId: v.id });
-      colorVariantIds[color] = v.id;
     }
   });
 
@@ -70,14 +77,13 @@ export default function ColorCycleCard({ product, storeUrl, blackOnly = false })
   // If no color-mapped images, fall back to cycling through all product images
   const cycleImages = hasMultipleColors
     ? colorImages.map(c => ({ src: c.src, label: c.color, variantId: c.variantId }))
-    : images?.length > 1
+    : images?.length > 1 && !singleColorOnly
       ? images.slice(0, 6).map(img => ({ src: img.src, label: '', variantId: firstVariantId }))
       : [{ src: firstImage, label: '', variantId: firstVariantId }];
 
   const [activeIndex, setActiveIndex] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
   const intervalRef = useRef(null);
-  const cardRef = useRef(null);
 
   // Auto-cycle on hover for multi-color products
   useEffect(() => {
@@ -105,26 +111,25 @@ export default function ColorCycleCard({ product, storeUrl, blackOnly = false })
 
   return (
     <a
-      ref={cardRef}
       href={`${storeUrl}/products/${handle}`}
       className={`dc${hasMultipleColors ? ' dc--multi' : ''}`}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => { setIsHovering(false); clearInterval(intervalRef.current); }}
     >
       <div className="dc__wrap">
-        {/* Preload all images, crossfade active one */}
+        {/* Preload all images, crossfade active one — use hiRes */}
         {cycleImages.map((img, i) => (
           <img
             key={i}
-            src={img.src}
+            src={hiRes(img.src)}
             alt={`${title}${img.label ? ` — ${img.label}` : ''}`}
             className={`dc__img dc__img--layer${i === activeIndex ? ' dc__img--active' : ''}`}
             loading="lazy"
           />
         ))}
 
-        {/* Color swatch dots — only for multi-color */}
-        {hasMultipleColors && (
+        {/* Color swatch dots — only for multi-color (hidden for singleColorOnly) */}
+        {hasMultipleColors && !singleColorOnly && (
           <div className="dc__dots">
             {cycleImages.slice(0, 8).map((img, i) => (
               <button
@@ -154,7 +159,7 @@ export default function ColorCycleCard({ product, storeUrl, blackOnly = false })
         <div className="dc__name">{title}</div>
         <div className="dc__meta">
           <div className="dc__price">{priceStr}</div>
-          {hasMultipleColors && (
+          {hasMultipleColors && !singleColorOnly && (
             <div className="dc__color-count">{colorImages.length} colors</div>
           )}
         </div>
