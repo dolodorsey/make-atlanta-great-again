@@ -1,6 +1,5 @@
 import './globals.css';
 import MobileMenu from '@/components/MobileMenu';
-import PasswordGate from '@/components/PasswordGate';
 
 export const metadata = {
   title: 'MAKE ATLANTA GREAT AGAIN — Old Atlanta Over Everything',
@@ -32,7 +31,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <PasswordGate>
+        
         {/* ANNOUNCEMENT BAR */}
         <div className="announce">
           <div className="announce__track">
@@ -90,7 +89,7 @@ export default function RootLayout({ children }) {
             <span>A Kollective Hospitality Group brand</span>
           </div>
         </footer>
-        </PasswordGate>
+        
       </body>
     </html>
   );
