@@ -28,6 +28,16 @@ const NAV = [
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "Make Atlanta Great Again",
+          "description": "Atlanta streetwear brand celebrating city culture, teams, and neighborhoods through fashion.",
+          "url": "https://makeatlantagreatagain.myshopify.com",
+          "potentialAction": {"@type": "SearchAction", "target": "https://makeatlantagreatagain.myshopify.com/search?q={search_term_string}", "query-input": "required name=search_term_string"}
+        }) }} />
+      </head>
       <body>
         
         {/* ANNOUNCEMENT BAR */}
