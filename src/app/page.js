@@ -1,5 +1,5 @@
 export const dynamic = 'force-dynamic';
-const S = 'https://makeatlantagreatagain.myshopify.com';
+const S = 'https://thehautehalloween.myshopify.com';
 
 const PIECES = [
   { src: '/mockups/design-grid-9up.png', cat: 'all' },

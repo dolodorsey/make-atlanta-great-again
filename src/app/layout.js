@@ -13,7 +13,7 @@ export const metadata = {
   },
 };
 
-const SHOPIFY = 'https://makeatlantagreatagain.myshopify.com';
+const SHOPIFY = 'https://thehautehalloween.myshopify.com';
 
 const NAV = [
   { label: 'Home', href: '/' },
@@ -34,8 +34,8 @@ export default function RootLayout({ children }) {
           "@type": "WebSite",
           "name": "Make Atlanta Great Again",
           "description": "Atlanta streetwear brand celebrating city culture, teams, and neighborhoods through fashion.",
-          "url": "https://makeatlantagreatagain.myshopify.com",
-          "potentialAction": {"@type": "SearchAction", "target": "https://makeatlantagreatagain.myshopify.com/search?q={search_term_string}", "query-input": "required name=search_term_string"}
+          "url": "https://thehautehalloween.myshopify.com",
+          "potentialAction": {"@type": "SearchAction", "target": "https://thehautehalloween.myshopify.com/search?q={search_term_string}", "query-input": "required name=search_term_string"}
         }) }} />
       </head>
       <body>
