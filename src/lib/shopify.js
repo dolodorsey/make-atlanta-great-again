@@ -1,4 +1,4 @@
-const STORE = 'makeatlantagreatagain.myshopify.com';
+const STORE = 'thehautehalloween.myshopify.com';
 const TOKEN = process.env.SHOPIFY_ADMIN_TOKEN;
 const API = `https://${STORE}/admin/api/2024-01`;
 
@@ -25,7 +25,9 @@ export async function shopifyFetch(endpoint) {
 
 export async function getProducts(status = 'active', limit = 250) {
   const data = await shopifyFetch(`/products.json?limit=${limit}&status=${status}`);
-  return data?.products || [];
+  const all = data?.products || [];
+  // Multi-brand store — always filter to brand_maga
+  return all.filter(p => (p.tags || '').split(',').map(t => t.trim()).includes('brand_maga'));
 }
 
 export async function getCollections() {
@@ -38,7 +40,8 @@ export async function getCollectionProducts(handle) {
   const collection = collections.find(c => c.handle === handle);
   if (!collection) return { collection: null, products: [] };
   const data = await shopifyFetch(`/products.json?collection_id=${collection.id}&limit=250&status=active`);
-  return { collection, products: data.products };
+  const all = data?.products || [];
+  return { collection, products: all.filter(p => (p.tags || '').split(',').map(t => t.trim()).includes('brand_maga')) };
 }
 
 export async function getProduct(handle) {
