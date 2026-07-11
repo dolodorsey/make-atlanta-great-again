@@ -13,7 +13,7 @@ export const metadata = {
   },
 };
 
-const SHOPIFY = 'https://thehautehalloween.myshopify.com';
+const SHOPIFY = 'https://www.bodegabodegabodega.com';
 
 const NAV = [
   { label: 'Home', href: '/' },
@@ -34,8 +34,8 @@ export default function RootLayout({ children }) {
           "@type": "WebSite",
           "name": "Make Atlanta Great Again",
           "description": "Atlanta streetwear brand celebrating city culture, teams, and neighborhoods through fashion.",
-          "url": "https://thehautehalloween.myshopify.com",
-          "potentialAction": {"@type": "SearchAction", "target": "https://thehautehalloween.myshopify.com/search?q={search_term_string}", "query-input": "required name=search_term_string"}
+          "url": "https://www.bodegabodegabodega.com",
+          "potentialAction": {"@type": "SearchAction", "target": "https://www.bodegabodegabodega.com/search?q={search_term_string}", "query-input": "required name=search_term_string"}
         }) }} />
       </head>
       <body>

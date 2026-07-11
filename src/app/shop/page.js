@@ -2,7 +2,7 @@ import { getProducts, formatPrice } from '@/lib/shopify';
 import ColorCycleCard from '@/components/ColorCycleCard';
 
 export const dynamic = 'force-dynamic';
-const S = 'https://thehautehalloween.myshopify.com';
+const S = 'https://www.bodegabodegabodega.com';
 
 const CATEGORIES = [
   { key: 'Snapback Cap,Trucker Hat', label: 'Hats', id: 'hats', multi: true },
