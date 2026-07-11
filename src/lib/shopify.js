@@ -1,4 +1,4 @@
-const STORE = 'www.bodegabodegabodega.com';
+const STORE = 'thehautehalloween.myshopify.com';
 const TOKEN = process.env.SHOPIFY_ADMIN_TOKEN;
 const API = `https://${STORE}/admin/api/2024-01`;
 
