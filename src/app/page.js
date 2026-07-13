@@ -61,15 +61,15 @@ const PIECES = [
 ];
 
 const CAT_LINKS = {
-  all: `${S}/collections/all-products`,
-  tees: `${S}/collections/t-shirts`,
-  vests: `${S}/collections/vests`,
-  hats: `${S}/collections/hats`,
-  snapbacks: `${S}/collections/hats`,
-  truckers: `${S}/collections/hats`,
-  buckets: `${S}/collections/bucket-hats`,
-  shorts: `${S}/collections/swimwear`,
-  swimwear: `${S}/collections/swimwear`,
+  all: `${S}/collections/maga`,
+  tees: `${S}/collections/maga`,
+  vests: `${S}/collections/maga`,
+  hats: `${S}/collections/maga`,
+  snapbacks: `${S}/collections/maga`,
+  truckers: `${S}/collections/maga`,
+  buckets: `${S}/collections/maga`,
+  shorts: `${S}/collections/maga`,
+  swimwear: `${S}/collections/maga`,
 };
 
 const SWIMWEAR = [
@@ -114,12 +114,12 @@ const GALLERY = [
 ];
 
 const COLLECTIONS = [
-  { src: '/mockups/olive-chief-tee-lookbook.png', title: 'T-Shirts', href: `${S}/collections/t-shirts` },
-  { src: '/mockups/shorts-axes-navy-boutique.png', title: 'Swimwear', href: `${S}/collections/swimwear` },
-  { src: '/mockups/snapbacks-boutique-red.png', title: 'Hats', href: `${S}/collections/hats` },
-  { src: '/mockups/charcoal-falcons-vest.png', title: 'Vests', href: `${S}/collections/vests` },
-  { src: '/mockups/hawks-bucket-lookbook.png', title: 'Bucket Hats', href: `${S}/collections/bucket-hats` },
-  { src: '/mockups/design-grid-9up.png', title: 'Shop All', href: `${S}/collections/all-products` },
+  { src: '/mockups/olive-chief-tee-lookbook.png', title: 'T-Shirts', href: `${S}/collections/maga` },
+  { src: '/mockups/shorts-axes-navy-boutique.png', title: 'Swimwear', href: `${S}/collections/maga` },
+  { src: '/mockups/snapbacks-boutique-red.png', title: 'Hats', href: `${S}/collections/maga` },
+  { src: '/mockups/charcoal-falcons-vest.png', title: 'Vests', href: `${S}/collections/maga` },
+  { src: '/mockups/hawks-bucket-lookbook.png', title: 'Bucket Hats', href: `${S}/collections/maga` },
+  { src: '/mockups/design-grid-9up.png', title: 'Shop All', href: `${S}/collections/maga` },
 ];
 
 const CULTURE = [
@@ -201,7 +201,7 @@ export default function HomePage() {
       <section className="logos">
         <div className="logos__grid" style={{ gap: 'clamp(24px,4vw,48px)' }}>
           {LOGOS.map((src, i) => (
-            <a key={i} href={`${S}/collections/all-products`} className="logos__item" style={{ maxWidth: 'clamp(80px,12vw,140px)' }}>
+            <a key={i} href={`${S}/collections/maga`} className="logos__item" style={{ maxWidth: 'clamp(80px,12vw,140px)' }}>
               <img src={src} alt="" loading="lazy" />
             </a>
           ))}
@@ -259,11 +259,11 @@ export default function HomePage() {
           ))}
         </div>
         <div style={{ textAlign: 'center', marginTop: 32, display: 'flex', gap: 10, justifyContent: 'center', flexWrap: 'wrap' }}>
-          <a href={`${S}/collections/t-shirts`} className="btn-secondary">Shop Tees</a>
-          <a href={`${S}/collections/hats`} className="btn-secondary">Shop Hats</a>
-          <a href={`${S}/collections/bucket-hats`} className="btn-secondary">Shop Buckets</a>
-          <a href={`${S}/collections/vests`} className="btn-secondary">Shop Vests</a>
-          <a href={`${S}/collections/swimwear`} className="btn-secondary">Shop Swimwear</a>
+          <a href={`${S}/collections/maga`} className="btn-secondary">Shop Tees</a>
+          <a href={`${S}/collections/maga`} className="btn-secondary">Shop Hats</a>
+          <a href={`${S}/collections/maga`} className="btn-secondary">Shop Buckets</a>
+          <a href={`${S}/collections/maga`} className="btn-secondary">Shop Vests</a>
+          <a href={`${S}/collections/maga`} className="btn-secondary">Shop Swimwear</a>
         </div>
       </section>
 
@@ -275,7 +275,7 @@ export default function HomePage() {
             <div className="campaign__tag">City Classic</div>
             <h2 className="campaign__title">The Legendary<br /><em>Blue Pitcher</em></h2>
             <p className="campaign__desc">Some pieces don&rsquo;t need a long story. If you know what this mean to Atlanta, that&rsquo;s enough.</p>
-            <a href={`${S}/collections/t-shirts`} className="btn-primary">Cop Now</a>
+            <a href={`${S}/collections/maga`} className="btn-primary">Cop Now</a>
           </div>
         </div>
       </section>
@@ -291,7 +291,7 @@ export default function HomePage() {
         </div>
         <div className="swimwear-drop__grid">
           {SWIMWEAR.map((s, i) => (
-            <a key={i} href={`${S}/collections/swimwear`} className="swimwear-drop__card">
+            <a key={i} href={`${S}/collections/maga`} className="swimwear-drop__card">
               <div className="swimwear-drop__img-wrap">
                 <img src={s.src} alt={s.title} loading="lazy" />
                 <div className="swimwear-drop__badge">{s.type === 'one-piece' ? 'NEW' : 'TRUNKS'}</div>
@@ -304,7 +304,7 @@ export default function HomePage() {
           ))}
         </div>
         <div style={{ textAlign: 'center', marginTop: 32 }}>
-          <a href={`${S}/collections/swimwear`} className="btn-primary">Shop All Swimwear</a>
+          <a href={`${S}/collections/maga`} className="btn-primary">Shop All Swimwear</a>
         </div>
       </section>
 

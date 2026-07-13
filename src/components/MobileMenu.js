@@ -3,12 +3,11 @@ import { useState, useEffect } from 'react';
 
 const SHOPIFY = 'https://www.bodegabodegabodega.com';
 const NAV_LINKS = [
-  { label: 'Shop All', href: '/shop', internal: true },
-  { label: 'T-Shirts', href: '/collections/t-shirts' },
-  { label: 'Hats', href: '/collections/hats' },
-  { label: 'Bucket Hats', href: '/collections/bucket-hats' },
-  { label: 'Vests', href: '/collections/vests' },
-  { label: 'Swimwear', href: '/collections/swimwear' },
+  { label: 'Shop All MAGA', href: '/collections/maga' },
+  { label: 'THE BOOK', href: '/collections/the-book' },
+  { label: 'Tees', href: '/collections/tees-tanks' },
+  { label: 'Hats', href: '/collections/headwear' },
+  { label: 'New Arrivals', href: '/collections/new-arrivals' },
 ];
 
 export default function MobileMenu() {

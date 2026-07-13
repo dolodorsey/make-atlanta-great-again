@@ -17,12 +17,11 @@ const SHOPIFY = 'https://www.bodegabodegabodega.com';
 
 const NAV = [
   { label: 'Home', href: '/' },
-  { label: 'Shop All', href: '/shop' },
-  { label: 'Tees', href: `${SHOPIFY}/collections/t-shirts` },
-  { label: 'Hats', href: `${SHOPIFY}/collections/hats` },
-  { label: 'Buckets', href: `${SHOPIFY}/collections/bucket-hats` },
-  { label: 'Vests', href: `${SHOPIFY}/collections/vests` },
-  { label: 'Swimwear', href: `${SHOPIFY}/collections/swimwear` },
+  { label: 'Shop All', href: `${SHOPIFY}/collections/maga` },
+  { label: 'Tees', href: `${SHOPIFY}/collections/tees-tanks` },
+  { label: 'Hats', href: `${SHOPIFY}/collections/headwear` },
+  { label: 'THE BOOK', href: `${SHOPIFY}/collections/the-book` },
+  { label: 'New Arrivals', href: `${SHOPIFY}/collections/new-arrivals` },
 ];
 
 export default function RootLayout({ children }) {
@@ -70,11 +69,11 @@ export default function RootLayout({ children }) {
             </div>
             <div>
               <div className="footer__heading">Shop</div>
-              <a href={`${SHOPIFY}/collections/t-shirts`} className="footer__link">Tees</a>
-              <a href={`${SHOPIFY}/collections/hats`} className="footer__link">Hats</a>
-              <a href={`${SHOPIFY}/collections/bucket-hats`} className="footer__link">Buckets</a>
-              <a href={`${SHOPIFY}/collections/vests`} className="footer__link">Vests</a>
-              <a href={`${SHOPIFY}/collections/swimwear`} className="footer__link">Swimwear</a>
+              <a href={`${SHOPIFY}/collections/maga`} className="footer__link">Shop All MAGA</a>
+              <a href={`${SHOPIFY}/collections/tees-tanks`} className="footer__link">Tees</a>
+              <a href={`${SHOPIFY}/collections/headwear`} className="footer__link">Hats</a>
+              <a href={`${SHOPIFY}/collections/the-book`} className="footer__link">THE BOOK</a>
+              <a href={`${SHOPIFY}/collections/new-arrivals`} className="footer__link">New Arrivals</a>
             </div>
             <div>
               <div className="footer__heading">Info</div>

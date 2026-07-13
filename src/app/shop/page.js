@@ -49,7 +49,7 @@ export default async function ShopPage() {
               </a>
             );
           })}
-          <a href={`${S}/collections/all-products`} className="shop-nav__link shop-nav__link--shopify">
+          <a href={`${S}/collections/maga`} className="shop-nav__link shop-nav__link--shopify">
             Shopify Store &rarr;
           </a>
         </div>
@@ -73,7 +73,7 @@ export default async function ShopPage() {
           <section key={cat.id} id={cat.id} className="shop">
             <div className="shop__header">
               <h2 className="shop__title">{cat.label} &mdash; {items.length}</h2>
-              <a href={`${S}/collections/${cat.id === 'tees' ? 't-shirts' : cat.id === 'buckets' ? 'bucket-hats' : cat.id === 'swim-trunks' || cat.id === 'swimsuits' ? 'swimwear' : cat.id}`} className="shop__link">
+              <a href={`${S}/collections/maga`} className="shop__link">
                 View on Shopify &rarr;
               </a>
             </div>
