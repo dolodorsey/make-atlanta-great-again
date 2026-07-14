@@ -159,6 +159,17 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* REAL PRODUCT CAMPAIGN — ANIMATION ABOVE REMAINS INTACT */}
+      <section className="real-campaign">
+        <img src="/culture/real-product-campaign.png" alt="MAKE ATLANTA GREAT AGAIN real cap and shorts campaign" />
+        <div className="real-campaign__overlay" />
+        <div className="real-campaign__copy">
+          <span>Real products / Atlanta</span>
+          <h2>The city,<br /><em>worn right.</em></h2>
+          <a href="/shop" className="btn-primary">Shop the Collection</a>
+        </div>
+      </section>
+
       {/* COLLECTIONS — RIGHT AFTER HERO */}
       <section className="collections" id="shop">
         <div className="collections__header">

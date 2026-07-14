@@ -25,6 +25,7 @@ export const metadata = {
     url: 'https://thaoldatlanta.com',
     siteName: 'MAKE ATLANTA GREAT AGAIN',
     type: 'website',
+    images: ['/culture/real-product-campaign.png'],
   },
 };
 
