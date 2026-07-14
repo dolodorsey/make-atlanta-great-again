@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 
-const SHOPIFY = 'https://www.bodegabodegabodega.com';
+const SHOPIFY = 'https://bodgeaworldwide.myshopify.com';
 const NAV_LINKS = [
   { label: 'Shop All MAGA', href: '/collections/maga' },
   { label: 'THE BOOK', href: '/collections/the-book' },

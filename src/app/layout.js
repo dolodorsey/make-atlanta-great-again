@@ -13,7 +13,7 @@ export const metadata = {
   },
 };
 
-const SHOPIFY = 'https://www.bodegabodegabodega.com';
+const SHOPIFY = 'https://bodgeaworldwide.myshopify.com';
 
 const NAV = [
   { label: 'Home', href: '/' },
@@ -33,8 +33,8 @@ export default function RootLayout({ children }) {
           "@type": "WebSite",
           "name": "Make Atlanta Great Again",
           "description": "Atlanta streetwear brand celebrating city culture, teams, and neighborhoods through fashion.",
-          "url": "https://www.bodegabodegabodega.com",
-          "potentialAction": {"@type": "SearchAction", "target": "https://www.bodegabodegabodega.com/search?q={search_term_string}", "query-input": "required name=search_term_string"}
+          "url": "https://bodgeaworldwide.myshopify.com",
+          "potentialAction": {"@type": "SearchAction", "target": "https://bodgeaworldwide.myshopify.com/search?q={search_term_string}", "query-input": "required name=search_term_string"}
         }) }} />
       </head>
       <body>
