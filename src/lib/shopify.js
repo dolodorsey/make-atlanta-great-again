@@ -32,7 +32,7 @@ function hasBrandTag(product) {
 }
 
 export async function getProducts(limit = 250) {
-  const data = await shopifyFetch(`/collections/maga/products.json?limit=${limit}`);
+  const data = await shopifyFetch(`/collections/make-atlanta-great-again/products.json?limit=${limit}`);
   return data?.products || [];
 }
 
@@ -46,7 +46,7 @@ export async function getCollectionProducts(handle) {
   const products = data?.products || [];
   return {
     collection: (await getCollections()).find(collection => collection.handle === handle) || null,
-    products: handle === 'maga' ? products : products.filter(hasBrandTag),
+    products: handle === 'make-atlanta-great-again' ? products : products.filter(hasBrandTag),
   };
 }
 
