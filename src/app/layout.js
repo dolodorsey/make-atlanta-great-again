@@ -1,5 +1,20 @@
 import './globals.css';
+import { DM_Sans, Playfair_Display } from 'next/font/google';
 import MobileMenu from '@/components/MobileMenu';
+
+const display = Playfair_Display({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800'],
+  style: ['normal', 'italic'],
+  variable: '--font-maga-display',
+  display: 'swap',
+});
+const body = DM_Sans({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-maga-body',
+  display: 'swap',
+});
 
 export const metadata = {
   title: 'MAKE ATLANTA GREAT AGAIN — Old Atlanta Over Everything',
@@ -26,7 +41,7 @@ const NAV = [
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${display.variable} ${body.variable}`}>
       <head>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
           "@context": "https://schema.org",
@@ -54,7 +69,7 @@ export default function RootLayout({ children }) {
             {NAV.map(n => (
               <li key={n.label}><a href={n.href} className="nav__link">{n.label}</a></li>
             ))}
-            <li><a href={`${SHOPIFY}/cart`} className="nav__link" style={{ color: '#C9A84C' }}>Cart</a></li>
+            <li><a href={`${SHOPIFY}/cart`} className="nav__link nav__link--cart">Cart</a></li>
           </ul>
           <MobileMenu />
         </nav>
