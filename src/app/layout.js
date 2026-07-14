@@ -18,10 +18,10 @@ const SHOPIFY = 'https://bodgeaworldwide.myshopify.com';
 const NAV = [
   { label: 'Home', href: '/' },
   { label: 'Shop All', href: `${SHOPIFY}/collections/maga` },
-  { label: 'Tees', href: `${SHOPIFY}/collections/tees-tanks` },
-  { label: 'Hats', href: `${SHOPIFY}/collections/headwear` },
+  { label: 'Tees', href: `${SHOPIFY}/collections/maga` },
+  { label: 'Hats', href: `${SHOPIFY}/collections/maga` },
   { label: 'THE BOOK', href: `${SHOPIFY}/collections/the-book` },
-  { label: 'New Arrivals', href: `${SHOPIFY}/collections/new-arrivals` },
+  { label: 'New Arrivals', href: `${SHOPIFY}/collections/maga` },
 ];
 
 export default function RootLayout({ children }) {
@@ -70,10 +70,10 @@ export default function RootLayout({ children }) {
             <div>
               <div className="footer__heading">Shop</div>
               <a href={`${SHOPIFY}/collections/maga`} className="footer__link">Shop All MAGA</a>
-              <a href={`${SHOPIFY}/collections/tees-tanks`} className="footer__link">Tees</a>
-              <a href={`${SHOPIFY}/collections/headwear`} className="footer__link">Hats</a>
+              <a href={`${SHOPIFY}/collections/maga`} className="footer__link">Tees</a>
+              <a href={`${SHOPIFY}/collections/maga`} className="footer__link">Hats</a>
               <a href={`${SHOPIFY}/collections/the-book`} className="footer__link">THE BOOK</a>
-              <a href={`${SHOPIFY}/collections/new-arrivals`} className="footer__link">New Arrivals</a>
+              <a href={`${SHOPIFY}/collections/maga`} className="footer__link">New Arrivals</a>
             </div>
             <div>
               <div className="footer__heading">Info</div>

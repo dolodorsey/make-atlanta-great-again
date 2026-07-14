@@ -6,10 +6,12 @@ const S = 'https://bodgeaworldwide.myshopify.com';
 
 const CATEGORIES = [
   { key: 'Snapback Cap,Trucker Hat', label: 'Hats', id: 'hats', multi: true },
+  { key: 'Cap', label: 'Caps', id: 'caps' },
   { key: 'T-Shirt', label: 'T-Shirts', id: 'tees' },
   { key: 'Vest', label: 'Vests', id: 'vests' },
   { key: 'Bucket Hat', label: 'Bucket Hats', id: 'buckets' },
   { key: 'Pants', label: 'Pants', id: 'pants' },
+  { key: 'Shorts', label: 'Shorts', id: 'shorts' },
   { key: 'Swim Trunks', label: 'Swim Trunks', id: 'swim-trunks' },
   { key: 'Swimsuit', label: 'Swimsuits', id: 'swimsuits' },
 ];
