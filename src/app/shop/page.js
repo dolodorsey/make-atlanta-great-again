@@ -35,12 +35,19 @@ export default async function ShopPage() {
     byType[t].push(p);
   });
 
+  const configuredTypes = new Set(CATEGORIES.flatMap(cat => cat.key.split(',').map(type => type.trim())));
+  const sections = CATEGORIES.concat(
+    Object.keys(byType)
+      .filter(type => !configuredTypes.has(type))
+      .map(type => ({ key: type, label: type === 'Other' ? 'Other Products' : type, id: `other-${type.toLowerCase().replace(/[^a-z0-9]+/g, '-')}` }))
+  );
+
   return (
     <div style={{ paddingTop: 88 }}>
       {/* STICKY CATEGORY NAV */}
       <nav className="shop-nav">
         <div className="shop-nav__inner">
-          {CATEGORIES.map(cat => {
+          {sections.map(cat => {
             const count = cat.multi
               ? cat.key.split(',').reduce((sum, k) => sum + (byType[k.trim()] || []).length, 0)
               : (byType[cat.key] || []).length;
@@ -58,7 +65,7 @@ export default async function ShopPage() {
       </nav>
 
       {/* ALL PRODUCT SECTIONS — no banner, straight to products */}
-      {CATEGORIES.map(cat => {
+      {sections.map(cat => {
         const items = cat.multi
           ? cat.key.split(',').flatMap(k => byType[k.trim()] || [])
           : (byType[cat.key] || []);
