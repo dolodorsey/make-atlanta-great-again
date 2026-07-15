@@ -31,9 +31,34 @@ function hasBrandTag(product) {
   return tags.includes(BRAND_TAG);
 }
 
+function isNewUntaggedImport(product) {
+  const tags = Array.isArray(product?.tags)
+    ? product.tags
+    : (product?.tags || '').split(',').map(tag => tag.trim()).filter(Boolean);
+  return tags.length === 0;
+}
+
 export async function getProducts(limit = 250) {
-  const data = await shopifyFetch(`/collections/make-atlanta-great-again/products.json?limit=${limit}`);
-  return data?.products || [];
+  // The newly imported catalog is currently untagged in Shopify. Per the
+  // store owner, every unassigned item in this import belongs to MAGA.
+  // Fetch both public catalog pages so the storefront is not capped at 250.
+  const [pageOne, pageTwo] = await Promise.all([
+    shopifyFetch(`/products.json?limit=${limit}&page=1`),
+    shopifyFetch(`/products.json?limit=${limit}&page=2`),
+  ]);
+
+  const products = [
+    ...(pageOne?.products || []),
+    ...(pageTwo?.products || []),
+  ];
+
+  const uniqueProducts = Array.from(
+    new Map(products.map(product => [product.id, product])).values()
+  );
+
+  return uniqueProducts.filter(
+    product => hasBrandTag(product) || isNewUntaggedImport(product)
+  );
 }
 
 export async function getCollections() {

@@ -7,13 +7,23 @@ const S = 'https://bodgeaworldwide.myshopify.com';
 const CATEGORIES = [
   { key: 'Snapback Cap,Trucker Hat', label: 'Hats', id: 'hats', multi: true },
   { key: 'Cap', label: 'Caps', id: 'caps' },
+  { key: 'Hoodie', label: 'Hoodies', id: 'hoodies' },
+  { key: 'Sweatshirt', label: 'Sweatshirts', id: 'sweatshirts' },
+  { key: 'Jacket', label: 'Jackets', id: 'jackets' },
   { key: 'T-Shirt', label: 'T-Shirts', id: 'tees' },
+  { key: 'Tank Top', label: 'Tank Tops', id: 'tank-tops' },
+  { key: 'Polo', label: 'Polos', id: 'polos' },
+  { key: 'Jersey', label: 'Jerseys', id: 'jerseys' },
   { key: 'Vest', label: 'Vests', id: 'vests' },
   { key: 'Bucket Hat', label: 'Bucket Hats', id: 'buckets' },
   { key: 'Pants', label: 'Pants', id: 'pants' },
   { key: 'Shorts', label: 'Shorts', id: 'shorts' },
   { key: 'Swim Trunks', label: 'Swim Trunks', id: 'swim-trunks' },
   { key: 'Swimsuit', label: 'Swimsuits', id: 'swimsuits' },
+  { key: 'Sports Bra', label: 'Sports Bras', id: 'sports-bras' },
+  { key: 'Leggings', label: 'Leggings', id: 'leggings' },
+  { key: 'Dress', label: 'Dresses', id: 'dresses' },
+  { key: 'Skirt', label: 'Skirts', id: 'skirts' },
 ];
 
 // Product types where we should HIDE manufacturer color variants
@@ -26,11 +36,37 @@ const SINGLE_COLOR_TYPES = [
   'Swimsuit',
 ];
 
+function inferProductType(product) {
+  if (product.product_type?.trim()) return product.product_type.trim();
+
+  const title = product.title.toLowerCase();
+  if (/bucket hat/.test(title)) return 'Bucket Hat';
+  if (/snapback|trucker hat/.test(title)) return 'Trucker Hat';
+  if (/cap|visor/.test(title)) return 'Cap';
+  if (/sports? bra/.test(title)) return 'Sports Bra';
+  if (/legging/.test(title)) return 'Leggings';
+  if (/swimsuit|one-piece/.test(title)) return 'Swimsuit';
+  if (/swim trunks|beach shorts/.test(title)) return 'Swim Trunks';
+  if (/shorts/.test(title)) return 'Shorts';
+  if (/sweatpants|jogger|\bpants\b|trouser/.test(title)) return 'Pants';
+  if (/hoodie/.test(title)) return 'Hoodie';
+  if (/sweatshirt/.test(title)) return 'Sweatshirt';
+  if (/jacket|coat|windbreaker/.test(title)) return 'Jacket';
+  if (/\bvest\b/.test(title)) return 'Vest';
+  if (/jersey/.test(title)) return 'Jersey';
+  if (/polo/.test(title)) return 'Polo';
+  if (/tank top|muscle t-shirt|sleeveless/.test(title)) return 'Tank Top';
+  if (/t-shirt|\btee\b/.test(title)) return 'T-Shirt';
+  if (/dress/.test(title)) return 'Dress';
+  if (/skirt/.test(title)) return 'Skirt';
+  return 'Other';
+}
+
 export default async function ShopPage() {
   const products = await getProducts();
   const byType = {};
   (products || []).forEach(p => {
-    const t = p.product_type || 'Other';
+    const t = inferProductType(p);
     if (!byType[t]) byType[t] = [];
     byType[t].push(p);
   });
